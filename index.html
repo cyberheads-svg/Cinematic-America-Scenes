@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ja" style="background:#080608">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cinematic America Scenes</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400&display=swap');
+  :root{
+    --bg:#080608;--panel:#100d10;--border:#201820;--border2:#302830;
+    --text:#d8d0c8;--muted:#6a5a50;--dim:#201810;
+    --accent:#fcd34d;--accent2:#fda4af;--accent3:#86efac;
+    --mono:'DM Mono',monospace;--serif:'DM Serif Display',serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{background:#080608}
+  body{background:var(--bg);color:var(--text);font-family:var(--mono);min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:48px 20px 60px}
+  header{text-align:center;margin-bottom:36px}
+  .eyebrow{font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  h1{font-family:var(--serif);font-style:italic;font-size:clamp(26px,5vw,42px);color:#fff;font-weight:400;line-height:1.1;margin-bottom:4px}
+  h1 span{color:var(--accent)}
+  .subtitle{font-size:11px;color:var(--muted);margin-top:6px;letter-spacing:.15em}
+  .counter{font-size:10px;color:var(--dim);margin-top:8px;letter-spacing:.2em}
+  .theme-label{margin-top:14px;font-size:9px;letter-spacing:.2em;color:#281e10;text-transform:uppercase;font-family:'DM Mono',monospace}
+  .card{width:100%;max-width:560px;background:var(--panel);border:1px solid var(--border);padding:32px;margin-bottom:20px}
+  .empty-state{text-align:center;padding:40px 0;color:var(--dim)}
+  .empty-icon{font-size:40px;margin-bottom:12px;opacity:.5}
+  .empty-text{font-size:12px;line-height:1.7;letter-spacing:.05em}
+  .fields{display:flex;flex-direction:column;gap:16px;margin-bottom:28px}
+  .field{display:grid;grid-template-columns:110px 1fr;gap:12px;align-items:start}
+  .field-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);padding-top:4px;line-height:1.4}
+  .field-value{font-family:var(--serif);font-style:italic;font-size:16px;line-height:1.4}
+  .rare-badge{font-family:var(--mono);font-size:8px;letter-spacing:.15em;text-transform:uppercase;padding:1px 6px;border:1px solid currentColor;opacity:.6;margin-left:8px;vertical-align:middle;font-style:normal}
+  .divider{border:none;border-top:1px solid var(--border);margin-bottom:20px}
+  .prompt-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .prompt-text{font-family:var(--mono);font-size:11px;color:var(--muted);line-height:1.9;margin-bottom:14px;word-break:break-word}
+  .copy-btn{background:transparent;border:1px solid var(--border2);color:var(--muted);padding:7px 18px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;font-family:var(--mono);transition:all .15s}
+  .copy-btn:hover{border-color:var(--accent);color:var(--accent)}
+  .copy-btn.copied{border-color:var(--accent3);color:var(--accent3)}
+  .generate-btn{width:100%;max-width:560px;background:transparent;border:1px solid #302010;color:var(--accent);padding:16px;font-size:11px;letter-spacing:.35em;text-transform:uppercase;cursor:pointer;font-family:var(--mono);transition:all .2s;margin-bottom:12px}
+  .generate-btn:hover{background:#180e08;border-color:var(--accent)}
+  .save-btn{width:100%;max-width:560px;background:transparent;border:1px solid var(--border);color:var(--muted);padding:12px;font-size:10px;letter-spacing:.25em;text-transform:uppercase;cursor:pointer;font-family:var(--mono);transition:all .2s;margin-bottom:40px}
+  .save-btn:hover{border-color:var(--border2);color:var(--text)}
+  .saved-section{width:100%;max-width:560px}
+  .saved-title{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+  .saved-item{background:var(--panel);border:1px solid var(--border);padding:12px 16px;margin-bottom:8px;font-size:11px;color:var(--muted);line-height:1.7;cursor:pointer;transition:border-color .15s}
+  .saved-item:hover{border-color:var(--border2);color:var(--text)}
+  footer{margin-top:20px;font-size:10px;color:var(--dim);letter-spacing:.15em;text-align:center}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+  .animate-in{animation:fadeIn .3s ease forwards}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">MV Location · Prompt Generator</div>
+  <h1>Cinematic <span>America</span></h1>
+  <div class="subtitle">Everyday Scenes Generator</div>
+  <div class="counter" id="counter">— generated</div>
+  <div class="theme-label">theme · the quiet beauty of ordinary american life</div>
+</header>
+
+<div class="card">
+  <div class="empty-state" id="emptyState">
+    <div class="empty-icon">🎬</div>
+    <div class="empty-text">ボタンを押してシーンを生成<br>MV撮影用ロケーションプロンプト</div>
+  </div>
+  <div id="result" style="display:none"></div>
+</div>
+
+<button class="generate-btn" onclick="generate()">GENERATE SCENE</button>
+<button class="save-btn" onclick="savePrompt()" id="saveBtn" style="display:none">SAVE THIS SCENE</button>
+
+<div class="saved-section" id="savedSection" style="display:none">
+  <div class="saved-title">Saved Scenes</div>
+  <div id="savedList"></div>
+</div>
+
+<footer>Cinematic America · Everyday Scene Generator · filmic prompts</footer>
+
+<script>
+let generated = 0;
+let currentPrompt = "";
+
+const pick = arr => arr[Math.floor(Math.random() * arr.length)];
+
+const LOCATIONS = [
+  // === CLASSIC DINERS ===
+  "classic American diner interior at golden hour, sunlight streaming through large windows onto red vinyl booths",
+  "midnight diner counter, half-empty coffee cups and pie display case glowing under fluorescent light",
+  "roadside diner booth by the window, late afternoon light, crumpled napkin and empty mug",
+  "small town diner kitchen pass-through, warm light, plates ready on the counter",
+  "diner at blue hour, neon sign reflecting in wet parking lot outside",
+  "empty diner corner booth, jukebox glowing softly in the background",
+  "classic diner exterior at dusk, chrome and neon sign shining",
+  "diner breakfast counter with spinning pie case and worn red stools",
+  "diner at 6am, first customer of the day, steam rising from coffee cup",
+  "diner window seat, rain outside, half-eaten slice of pie, nobody waiting",
+
+  // === ROADSIDE & GAS STATIONS ===
+  "small town gas station at golden hour, single pump under glowing neon sign, long shadows on concrete",
+  "roadside convenience store interior, fluorescent lights, quiet aisle with snack shelves",
+  "empty parking lot in front of a classic roadside motel, neon vacancy sign flickering",
+  "truck stop gas station at night, big rigs parked, warm light spilling from the shop",
+  "old-fashioned gas station with vintage pumps and faded Coca-Cola sign",
+  "roadside gas station at dusk, one attendant visible through the lit window",
+  "deserted highway rest stop, single vending machine glowing, nobody around",
+  "roadside fruit stand, hand-painted sign, afternoon light on the produce",
+  "car wash bay at dusk, empty and dripping, last light catching the water",
+  "highway overpass at golden hour, long shadows and abandoned shopping cart below",
+
+  // === BARS & DIVE BARS ===
+  "neighborhood dive bar interior in late afternoon, sunlight cutting through dusty air onto wooden bar",
+  "small town bar at twilight, jukebox glowing, empty stools and pool table in background",
+  "roadhouse bar exterior at night, neon beer signs reflecting on wet asphalt",
+  "dimly lit local bar with dark wood paneling and brass fixtures",
+  "corner bar with frosted glass windows glowing amber in the rain",
+  "dive bar at 4pm, two regulars at the bar, TV showing baseball with no sound",
+  "bar back alley at night, single dumpster and one lit exit sign",
+  "honky-tonk bar exterior, pickup trucks in the lot, neon boot sign above door",
+  "small jazz bar interior, low light and empty stage, microphone stand alone in spotlight",
+  "pool hall interior, single overhead lamp on the table, blue chalk on the rail",
+
+  // === ROOFTOP BARS ===
+  "rooftop bar in a mid-sized American city at golden hour, skyline in background, string lights overhead",
+  "rooftop lounge at blue hour, city lights starting to twinkle, empty high-top tables",
+  "upscale rooftop bar at night, sleek furniture and dramatic view of downtown lights",
+  "rooftop bar with heat lamps on a cool evening, city glow below",
+  "hotel rooftop bar overlooking the city, soft lighting and glass railings",
+
+  // === BURLESQUE & CABARET ===
+  "dimly lit burlesque club interior, red velvet curtains, single spotlight on the empty stage",
+  "intimate cabaret venue at night, round tables and low theatrical lighting",
+  "vintage-style burlesque club, velvet booths and crystal chandelier",
+  "small pole dance studio with mirrored walls and soft theatrical lighting",
+  "underground burlesque club with industrial brick walls and colored lights",
+  "backstage dressing room with mirror and bare bulbs, feather boa on the chair",
+  "burlesque stage with heavy red curtains and warm footlights, nobody performing yet",
+
+  // === MOTELS & TRANSIENT ===
+  "classic roadside motel room interior, sunlight through half-closed curtains onto worn carpet",
+  "motel exterior corridor at blue hour, room doors lined up, neon sign in distance",
+  "empty motel swimming pool at dusk, still water reflecting fading sky",
+  "motel lobby at night, wood paneling and vending machine glow",
+  "motel parking lot at dawn, one car left, curtains drawn in every room",
+  "motel ice machine alcove at 2am, buzzing and dripping, harsh light",
+
+  // === SMALL TOWN STREETS ===
+  "quiet main street of a small American town at golden hour, long shadows across empty road",
+  "Victorian house porch in late afternoon light, American flag gently moving",
+  "suburban street with mature trees, golden light filtering through leaves",
+  "small town post office exterior, faded paint and American flag in soft morning light",
+  "quiet residential street at dusk, porch lights starting to come on",
+  "small town barbershop exterior with striped pole, closed for the day",
+  "empty school parking lot on a summer Saturday, heat shimmer off the asphalt",
+  "town square with gazebo and war memorial, late afternoon light",
+  "front porch with rocking chair and screen door, summer evening",
+  "cul-de-sac at twilight, kids' bikes left on lawns",
+
+  // === LAUNDROMATS & EVERYDAY INTERIORS ===
+  "24-hour laundromat interior, rows of machines spinning, warm light and empty plastic chairs",
+  "laundromat at 2am, machines humming, single person folding clothes in silence",
+  "old coin laundromat with vintage machines and handwritten signs",
+  "small town barbershop interior, classic pole, afternoon sunlight through window",
+  "nail salon interior at closing time, one light still on, chairs empty",
+  "dry cleaner with plastic-wrapped clothes on the carousel, fluorescent light",
+  "small town pharmacy interior, old wooden shelves and a lunch counter at the back",
+
+  // === DOMESTIC & RESIDENTIAL ===
+  "American kitchen at golden hour, sunlight on linoleum floor, percolator on the counter",
+  "living room with television set, afternoon light through venetian blinds striping the wall",
+  "screen porch on a summer evening, ceiling fan turning, fireflies outside",
+  "kitchen table at dawn, single coffee cup, newspaper not yet opened",
+  "bedroom with patchwork quilt and morning light through lace curtains",
+  "bathroom with pink tile and pedestal sink, morning light from frosted glass window",
+  "hallway with family photographs, afternoon light from open back door",
+  "basement with wood-paneled walls, old couch and shelves of paperbacks",
+  "attic with dust motes and afternoon light, cardboard boxes and old lamp",
+  "garage with single bulb, tools on pegboard, oil stain on the concrete floor",
+
+  // === NATURE & LANDSCAPE ===
+  "two-lane highway through flat farmland, late afternoon, nobody coming",
+  "grain elevator at sunrise, long shadow across empty road",
+  "cornfield at dusk, rows vanishing into darkness",
+  "pickup truck parked on a dirt road, engine off, nobody inside",
+  "river bend with old wooden bridge, afternoon light on the water",
+  "railroad crossing in a small town, gates up, no train coming",
+  "open field with single oak tree, golden hour light from the west",
+  "country road with telephone poles, sunset behind clouds",
+  "state park picnic area, empty tables, afternoon light through pine trees",
+  "roadside wildflowers against wire fence, summer, no houses visible"
+];
+
+const TIMES = [
+  "golden hour at sunset, long warm shadows stretching east",
+  "harsh midday sun, deep short shadows, bleached colour",
+  "early morning, low sun casting long diagonal shadows",
+  "late afternoon, amber light turning everything golden",
+  "just after sunrise, soft directional light, dew still on surfaces",
+  "blue hour just after sunset, sky deepening to indigo",
+  "mid-morning, crisp clear light, day fully underway",
+  "noon with almost no shadow, everything exposed",
+  "late evening, day cooling, light going soft and warm",
+  "3am under sodium streetlights, orange cast on everything",
+  "pre-dawn, sky barely lightening, one bird already calling",
+  "twilight, shapes losing definition, lights starting to matter",
+  "overcast midday, flat diffused light, no shadows at all",
+  "dusk, the last ten minutes before dark",
+  "morning rush hour, strong raking light, everyone in motion"
+];
+
+const WEATHER = [
+  "clear blue sky, no clouds, perfect natural light",
+  "overcast with soft even cloud cover, no harsh shadows",
+  "light summer rain, everything slightly wet and shining",
+  "heat haze shimmering off asphalt, deep summer",
+  "autumn day, leaves turning, cool clear air",
+  "dry winter cold, bare trees, low sun, sharp shadows",
+  "humid summer evening, air heavy, everything slightly damp",
+  "thin clouds softening the sunlight, warm and hazy",
+  "just after rain, everything freshly wet, sky clearing",
+  "dense morning fog slowly lifting",
+  "thunderstorm building in the distance, sky turning green",
+  "post-storm clarity, washed air and sharp light",
+  "late summer humidity, everything lush and slightly oppressive",
+  "early spring, cold and clear, first warm day",
+  "dust in the air, dry wind from the west, light going amber"
+];
+
+const SEASONS = [
+  "peak American summer, lush and humid",
+  "early fall, leaves just beginning to turn",
+  "deep midwestern winter, bare trees and frozen ground",
+  "spring bloom, everything green and new",
+  "late summer, heat fading but still present",
+  "October, full autumn colour",
+  "February, cold and spare but bright",
+  "April, rain and new growth",
+  "July heat, baked and still",
+  "November, stripped back, low light"
+];
+
+const MOODS = [
+  "quietly beautiful, no drama needed",
+  "nostalgic without being sad",
+  "the feeling of a Sunday afternoon with nowhere to be",
+  "something just happened or is about to",
+  "ordinary and somehow perfect",
+  "the loneliness that isn't quite loneliness",
+  "warm and slightly melancholic",
+  "the last moment before everything changes",
+  "unhurried and real",
+  "beautiful in a way that doesn't announce itself",
+  "the quality of light that makes you stop",
+  "intimately observed, like a private photograph",
+  "the texture of a life being lived",
+  "still and charged at the same time",
+  "the kind of scene a filmmaker would remember years later"
+];
+
+const CAMERA = [
+  "wide angle 24mm, vast sky dominating frame",
+  "50mm lens, natural perspective, mid-distance",
+  "85mm portrait lens, shallow depth of field, background softened",
+  "long telephoto 200mm, compressed perspective",
+  "low angle looking up at sign or sky",
+  "high angle looking down at street or floor",
+  "locked-off static shot, perfectly composed",
+  "handheld, slightly unsteady, documentary feel",
+  "through a window, reflections layered with interior",
+  "silhouette against the light",
+  "extreme close-up of texture and surface detail",
+  "slow dolly move along an empty space",
+  "bird's eye view from above",
+  "rack focus from foreground detail to background",
+  "through windshield, dashboard reflection visible"
+];
+
+const STYLE = [
+  "Kodak Portra 400 film aesthetic, warm and slightly faded",
+  "35mm film grain, saturated American colours",
+  "digital cinema, warm teal and orange grade",
+  "Terrence Malick golden hour cinematography",
+  "Edward Hopper painting quality, light and stillness",
+  "Stephen Shore photography, deadpan American everyday",
+  "William Eggleston colour photography, banal and beautiful",
+  "soft focus dreamlike quality, hazy edges",
+  "crisp architectural photography, clean and precise",
+  "gritty street photography, unflinching and real",
+  "contemporary American indie film look",
+  "hyperrealistic CGI environment, photographic clarity",
+  "long lens heat haze, shimmering and compressed",
+  "bleach bypass processing, desaturated with contrast",
+  "Super 8 film aesthetic, warm grain and vignette"
+];
+
+const PERCEPTION = [
+  "slight focus drift, as if the lens is struggling to settle",
+  "subtle temporal lag, movement feels delayed",
+  "soft motion blur lingering after stillness",
+  "light flickers unnaturally, barely perceptible",
+  "colours slightly misaligned, like a memory offset",
+  "depth feels inconsistent, foreground and background blending",
+  "visual noise creeping in like analog signal decay",
+  "frame feels almost still, but not completely frozen"
+];
+
+const CORE_FIXED = "the quiet beauty of ordinary american life";
+
+const CORE_VARIATION = [
+  "something here will be remembered long after it's gone",
+  "the world going on as it always does, beautiful for no reason",
+  "as if the camera arrived just in time"
+];
+
+const FIELD_COLORS = ["#fcd34d","#fda4af","#86efac","#67e8f9","#c084fc","#a5f3fc","#d9f99d","#fed7aa"];
+
+function generate() {
+  generated++;
+  document.getElementById("counter").textContent = `${generated} generated`;
+
+  const location = pick(LOCATIONS);
+  const time = pick(TIMES);
+  const weather = pick(WEATHER);
+  const season = pick(SEASONS);
+  const mood = pick(MOODS);
+  const camera = pick(CAMERA);
+  const style = pick(STYLE);
+  const perception = Math.random() < 0.35 ? pick(PERCEPTION) : null;
+  const variation = Math.random() < 0.5 ? pick(CORE_VARIATION) : null;
+
+  const parts = [
+    "United States of America",
+    location,
+    season,
+    time,
+    weather,
+    `mood: ${mood}`,
+    camera,
+    style,
+    ...(perception ? [perception] : []),
+    CORE_FIXED,
+    ...(variation ? [variation] : []),
+    "cinematic everyday America, filmic photography, natural light, high detail, no people"
+  ];
+
+  currentPrompt = parts.join(", ");
+
+  const fields = [
+    { label: "ロケーション", value: location, color: FIELD_COLORS[0] },
+    { label: "季節", value: season, color: FIELD_COLORS[1] },
+    { label: "時間帯", value: time, color: FIELD_COLORS[2] },
+    { label: "天気", value: weather, color: FIELD_COLORS[3] },
+    { label: "ムード", value: mood, color: FIELD_COLORS[4] },
+    { label: "カメラ", value: camera, color: FIELD_COLORS[5] },
+    { label: "スタイル", value: style, color: FIELD_COLORS[6] },
+  ];
+
+  if (perception) fields.push({ label: "知覚歪曲", value: perception, color: "#c084fc", rare: true });
+
+  const fieldsHTML = fields.map(f => `
+    <div class="field">
+      <div class="field-label">${f.label}</div>
+      <div class="field-value" style="color:${f.color}">
+        ${f.value}${f.rare ? `<span class="rare-badge" style="color:${f.color}">rare</span>` : ""}
+      </div>
+    </div>
+  `).join("");
+
+  document.getElementById("result").innerHTML = `
+    <div class="fields animate-in">${fieldsHTML}</div>
+    <hr class="divider">
+    <div class="prompt-label">画像AIにコピー</div>
+    <div class="prompt-text">${currentPrompt}</div>
+    <button class="copy-btn" id="copyBtn" onclick="copyPrompt()">Copy</button>
+  `;
+
+  document.getElementById("emptyState").style.display = "none";
+  document.getElementById("result").style.display = "block";
+  document.getElementById("saveBtn").style.display = "block";
+}
+
+function copyPrompt() {
+  if (!currentPrompt) return;
+  navigator.clipboard.writeText(currentPrompt).then(() => {
+    const btn = document.getElementById("copyBtn");
+    btn.textContent = "Copied ✓"; btn.classList.add("copied");
+    setTimeout(() => { btn.textContent = "Copy"; btn.classList.remove("copied"); }, 2000);
+  });
+}
+
+function savePrompt() {
+  if (!currentPrompt) return;
+  let saved = JSON.parse(localStorage.getItem("cin_america_v1") || "[]");
+  if (saved.includes(currentPrompt)) return;
+  saved.unshift(currentPrompt);
+  localStorage.setItem("cin_america_v1", JSON.stringify(saved.slice(0, 30)));
+  renderSaved();
+}
+
+function renderSaved() {
+  const saved = JSON.parse(localStorage.getItem("cin_america_v1") || "[]");
+  const section = document.getElementById("savedSection");
+  const list = document.getElementById("savedList");
+  if (saved.length === 0) { section.style.display = "none"; return; }
+  section.style.display = "block";
+  list.innerHTML = saved.map((p, i) => `<div class="saved-item" data-index="${i}">${p}</div>`).join("");
+  document.querySelectorAll(".saved-item").forEach(el => {
+    el.onclick = () => navigator.clipboard.writeText(saved[el.dataset.index]);
+  });
+}
+
+renderSaved();
+</script>
+</body>
+</html>
