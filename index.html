@@ -105,9 +105,6 @@ const LOCATIONS = [
   "old-fashioned gas station with vintage pumps and faded Coca-Cola sign",
   "roadside gas station at dusk, one attendant visible through the lit window",
   "deserted highway rest stop, single vending machine glowing, nobody around",
-  "roadside fruit stand, hand-painted sign, afternoon light on the produce",
-  "car wash bay at dusk, empty and dripping, last light catching the water",
-  "highway overpass at golden hour, long shadows and abandoned shopping cart below",
 
   // === BARS & DIVE BARS ===
   "neighborhood dive bar interior in late afternoon, sunlight cutting through dusty air onto wooden bar",
@@ -115,20 +112,13 @@ const LOCATIONS = [
   "roadhouse bar exterior at night, neon beer signs reflecting on wet asphalt",
   "dimly lit local bar with dark wood paneling and brass fixtures",
   "corner bar with frosted glass windows glowing amber in the rain",
-  "dive bar at 4pm, two regulars at the bar, TV showing baseball with no sound",
-  "bar back alley at night, single dumpster and one lit exit sign",
-  "honky-tonk bar exterior, pickup trucks in the lot, neon boot sign above door",
-  "small jazz bar interior, low light and empty stage, microphone stand alone in spotlight",
-  "pool hall interior, single overhead lamp on the table, blue chalk on the rail",
 
   // === ROOFTOP BARS ===
   "rooftop bar in a mid-sized American city at golden hour, skyline in background, string lights overhead",
   "rooftop lounge at blue hour, city lights starting to twinkle, empty high-top tables",
   "upscale rooftop bar at night, sleek furniture and dramatic view of downtown lights",
-  "rooftop bar with heat lamps on a cool evening, city glow below",
-  "hotel rooftop bar overlooking the city, soft lighting and glass railings",
 
-  // === BURLESQUE & CABARET (少しだけ追加) ===
+  // === BURLESQUE & CABARET ===
   "dimly lit burlesque club interior, red velvet curtains, single spotlight on the empty stage",
   "intimate cabaret venue at night, round tables and low theatrical lighting",
   "vintage-style burlesque club, velvet booths and crystal chandelier",
@@ -140,8 +130,6 @@ const LOCATIONS = [
   "motel exterior corridor at blue hour, room doors lined up, neon sign in distance",
   "empty motel swimming pool at dusk, still water reflecting fading sky",
   "motel lobby at night, wood paneling and vending machine glow",
-  "motel parking lot at dawn, one car left, curtains drawn in every room",
-  "motel ice machine alcove at 2am, buzzing and dripping, harsh light",
 
   // === SMALL TOWN STREETS ===
   "quiet main street of a small American town at golden hour, long shadows across empty road",
@@ -149,44 +137,52 @@ const LOCATIONS = [
   "suburban street with mature trees, golden light filtering through leaves",
   "small town post office exterior, faded paint and American flag in soft morning light",
   "quiet residential street at dusk, porch lights starting to come on",
-  "small town barbershop exterior with striped pole, closed for the day",
-  "empty school parking lot on a summer Saturday, heat shimmer off the asphalt",
-  "town square with gazebo and war memorial, late afternoon light",
-  "front porch with rocking chair and screen door, summer evening",
-  "cul-de-sac at twilight, kids' bikes left on lawns",
 
-  // === LAUNDROMATS & EVERYDAY INTERIORS ===
-  "24-hour laundromat interior, rows of machines spinning, warm light and empty plastic chairs",
-  "laundromat at 2am, machines humming, single person folding clothes in silence",
-  "old coin laundromat with vintage machines and handwritten signs",
-  "small town barbershop interior, classic pole, afternoon sunlight through window",
-  "nail salon interior at closing time, one light still on, chairs empty",
-  "dry cleaner with plastic-wrapped clothes on the carousel, fluorescent light",
-  "small town pharmacy interior, old wooden shelves and a lunch counter at the back",
+  // === LARGE SHOPPING MALLS ===
+  "large suburban shopping mall exterior at golden hour, vast parking lot with scattered cars",
+  "inside a big American mall, wide corridor with skylight, afternoon light streaming down",
+  "food court in a shopping mall at off-peak hours, empty tables and glowing neon signs",
+  "department store entrance with automatic doors, afternoon sunlight reflecting on glass",
+  "mall atrium with fountain and fake plants, soft diffused light from above",
+  "shopping mall parking lot at dusk, long shadows of lampposts and remaining cars",
 
-  // === DOMESTIC & RESIDENTIAL ===
-  "American kitchen at golden hour, sunlight on linoleum floor, percolator on the counter",
-  "living room with television set, afternoon light through venetian blinds striping the wall",
-  "screen porch on a summer evening, ceiling fan turning, fireflies outside",
-  "kitchen table at dawn, single coffee cup, newspaper not yet opened",
-  "bedroom with patchwork quilt and morning light through lace curtains",
-  "bathroom with pink tile and pedestal sink, morning light from frosted glass window",
-  "hallway with family photographs, afternoon light from open back door",
-  "basement with wood-paneled walls, old couch and shelves of paperbacks",
-  "attic with dust motes and afternoon light, cardboard boxes and old lamp",
-  "garage with single bulb, tools on pegboard, oil stain on the concrete floor",
+  // === FAST FOOD & BIG BOX STORES ===
+  "McDonald's drive-thru at dusk, neon lights glowing, one car waiting at the window",
+  "Walmart supercenter parking lot at dusk, shopping carts scattered across the lot",
+  "Target store wide aisle with bright overhead lighting, almost empty",
+  "Costco warehouse entrance, huge rolling doors and forklifts visible",
 
-  // === NATURE & LANDSCAPE ===
-  "two-lane highway through flat farmland, late afternoon, nobody coming",
-  "grain elevator at sunrise, long shadow across empty road",
-  "cornfield at dusk, rows vanishing into darkness",
-  "pickup truck parked on a dirt road, engine off, nobody inside",
-  "river bend with old wooden bridge, afternoon light on the water",
-  "railroad crossing in a small town, gates up, no train coming",
-  "open field with single oak tree, golden hour light from the west",
-  "country road with telephone poles, sunset behind clouds",
-  "state park picnic area, empty tables, afternoon light through pine trees",
-  "roadside wildflowers against wire fence, summer, no houses visible"
+  // === MOVIE THEATERS & DRIVE-INS ===
+  "multiplex cinema exterior at dusk, large movie posters lit up, few cars in the lot",
+  "drive-in movie theater screen at twilight, speaker posts standing in rows",
+  "classic drive-in theater entrance with retro marquee, golden hour light",
+
+  // === SUBURBAN & STRIP MALLS ===
+  "typical American strip mall at golden hour, long row of stores with parking in front",
+  "suburban cul-de-sac at dusk, kids' bikes left on driveways, garage doors closed",
+  "American suburb street with identical houses, manicured lawns and basketball hoops",
+
+  // === TRAILER PARKS ===
+  "trailer park at golden hour, rows of mobile homes with American flags, long shadows",
+  "trailer home exterior at dusk, single light on inside, laundry hanging outside",
+  "mobile home community at twilight, kids' bikes and toys scattered on the grass",
+  "old trailer park with faded paint and satellite dishes, late afternoon light",
+
+  // === TRAVELING CARNIVALS ===
+  "traveling carnival at dusk, Ferris wheel lights turning on, colorful midway glowing",
+  "small county fair at golden hour, carnival rides and food stalls with American flags",
+  "carnival midway at night, neon lights reflecting on wet pavement after rain",
+  "empty carnival grounds in the morning, tents and rides being dismantled",
+
+  // === COMMUNITY & INFRASTRUCTURE ===
+  "small white wooden church with simple steeple, standing alone against a vast blue sky",
+  "red brick public library with heavy oak door and American flag at half-mast, afternoon sun on the steps",
+  "intersecting power lines against a bruised purple sunset sky, birds sitting in rows",
+  "lumber yard with stacked lumber and rusted machinery, golden light on raw wood",
+  "liquor store with bars on windows and faded 'ICE' chest outside, harsh fluorescent glow in the rain",
+  "unlit neon motel sign with peeling paint, seen through heat haze on a July afternoon",
+  "high school football field at night, stadium lights on but no game happening",
+  "small town bowling alley interior, lanes glowing under fluorescent lights"
 ];
 
 const TIMES = [
