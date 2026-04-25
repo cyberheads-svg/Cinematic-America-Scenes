@@ -28,7 +28,6 @@
   .empty-icon{font-size:40px;margin-bottom:12px;opacity:.5}
   .empty-text{font-size:12px;line-height:1.7;letter-spacing:.05em}
   .fields{display:flex;flex-direction:column;gap:16px;margin-bottom:28px}
-  .field{display:grid;grid-template-columns:110px 1fr;gap:12px;align-items:start}
   .field-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);padding-top:4px;line-height:1.4}
   .field-value{font-family:var(--serif);font-style:italic;font-size:16px;line-height:1.4}
   .rare-badge{font-family:var(--mono);font-size:8px;letter-spacing:.15em;text-transform:uppercase;padding:1px 6px;border:1px solid currentColor;opacity:.6;margin-left:8px;vertical-align:middle;font-style:normal}
@@ -49,6 +48,11 @@
   footer{margin-top:20px;font-size:10px;color:var(--dim);letter-spacing:.15em;text-align:center}
   @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
   .animate-in{animation:fadeIn .3s ease forwards}
+  .field{display:grid;grid-template-columns:110px 1fr auto;gap:12px;align-items:start}
+  .reroll-btn{background:transparent;border:none;color:var(--muted);font-size:13px;cursor:pointer;padding:2px 6px;line-height:1;transition:color .15s;flex-shrink:0}
+  .reroll-btn:hover{color:var(--accent)}
+  .prompt-textarea{width:100%;background:#080406;border:1px solid var(--border2);color:var(--muted);font-family:var(--mono);font-size:11px;line-height:1.9;padding:12px;resize:vertical;min-height:100px;margin-bottom:14px;word-break:break-word}
+  .prompt-textarea:focus{outline:none;border-color:var(--accent)}
 </style>
 </head>
 <body>
@@ -576,48 +580,45 @@ const CORE_VARIATION = [
 
 const FIELD_COLORS = ["#fcd34d","#fda4af","#86efac","#67e8f9","#c084fc","#a5f3fc","#d9f99d","#fed7aa"];
 
-function generate() {
-  generated++;
-  document.getElementById("counter").textContent = `${generated} generated`;
+let lastVals = {};
 
-  const location = pick(LOCATIONS);
-  const time = pick(TIMES);
-  const weather = pick(WEATHER);
-  const season = pick(SEASONS);
-  const mood = pick(MOODS);
-  const camera = pick(CAMERA);
-  const style = pick(STYLE);
-  const perception = Math.random() < 0.35 ? pick(PERCEPTION) : null;
-  const variation = Math.random() < 0.5 ? pick(CORE_VARIATION) : null;
+function reroll(key) {
+  const sources = {
+    location: LOCATIONS, time: TIMES, weather: WEATHER,
+    season: SEASONS, mood: MOODS, camera: CAMERA, style: STYLE
+  };
+  if (sources[key]) lastVals[key] = pick(sources[key]);
+  else if (key === 'perception') lastVals.perception = Math.random() < 0.35 ? pick(PERCEPTION) : null;
+  rebuildPrompt();
+}
 
+function rebuildPrompt() {
+  const v = lastVals;
   const parts = [
-    "United States of America",
-    location,
-    season,
-    time,
-    weather,
-    `mood: ${mood}`,
-    camera,
-    style,
-    ...(perception ? [perception] : []),
+    "United States of America", v.location, v.season, v.time, v.weather,
+    `mood: ${v.mood}`, v.camera, v.style,
+    ...(v.perception ? [v.perception] : []),
     CORE_FIXED,
-    ...(variation ? [variation] : []),
+    ...(v.variation ? [v.variation] : []),
     "cinematic everyday America, filmic photography, natural light, high detail, no people"
   ];
-
   currentPrompt = parts.join(", ");
+  document.getElementById("promptTextarea").value = currentPrompt;
+  renderResultFields();
+}
 
+function renderResultFields() {
+  const v = lastVals;
   const fields = [
-    { label: "ロケーション", value: location, color: FIELD_COLORS[0] },
-    { label: "季節", value: season, color: FIELD_COLORS[1] },
-    { label: "時間帯", value: time, color: FIELD_COLORS[2] },
-    { label: "天気", value: weather, color: FIELD_COLORS[3] },
-    { label: "ムード", value: mood, color: FIELD_COLORS[4] },
-    { label: "カメラ", value: camera, color: FIELD_COLORS[5] },
-    { label: "スタイル", value: style, color: FIELD_COLORS[6] },
+    { label: "ロケーション", value: v.location, color: FIELD_COLORS[0], key: "location" },
+    { label: "季節", value: v.season, color: FIELD_COLORS[1], key: "season" },
+    { label: "時間帯", value: v.time, color: FIELD_COLORS[2], key: "time" },
+    { label: "天気", value: v.weather, color: FIELD_COLORS[3], key: "weather" },
+    { label: "ムード", value: v.mood, color: FIELD_COLORS[4], key: "mood" },
+    { label: "カメラ", value: v.camera, color: FIELD_COLORS[5], key: "camera" },
+    { label: "スタイル", value: v.style, color: FIELD_COLORS[6], key: "style" },
   ];
-
-  if (perception) fields.push({ label: "知覚歪曲", value: perception, color: "#c084fc", rare: true });
+  if (v.perception) fields.push({ label: "知覚歪曲", value: v.perception, color: "#c084fc", key: "perception", rare: true });
 
   const fieldsHTML = fields.map(f => `
     <div class="field">
@@ -625,6 +626,7 @@ function generate() {
       <div class="field-value" style="color:${f.color}">
         ${f.value}${f.rare ? `<span class="rare-badge" style="color:${f.color}">rare</span>` : ""}
       </div>
+      <button class="reroll-btn" onclick="reroll('${f.key}')" title="Re-roll">🔄</button>
     </div>
   `).join("");
 
@@ -632,43 +634,78 @@ function generate() {
     <div class="fields animate-in">${fieldsHTML}</div>
     <hr class="divider">
     <div class="prompt-label">画像AIにコピー</div>
-    <div class="prompt-text">${currentPrompt}</div>
-    <button class="copy-btn" id="copyBtn" onclick="copyPrompt()">Copy</button>
-  `;
+    <textarea class="prompt-textarea" id="promptTextarea" onInput="currentPrompt=this.value"></textarea>
 
-  document.getElementById("emptyState").style.display = "none";
-  document.getElementById("result").style.display = "block";
-  document.getElementById("saveBtn").style.display = "block";
+```
+<button class="copy-btn" id="copyBtn" onclick="copyPrompt()">Copy</button>
+```
+
+`;
+document.getElementById(“promptTextarea”).value = currentPrompt;
+}
+
+function generate() {
+generated++;
+document.getElementById(“counter”).textContent = `${generated} generated`;
+
+const location = pick(LOCATIONS);
+const time = pick(TIMES);
+const weather = pick(WEATHER);
+const season = pick(SEASONS);
+const mood = pick(MOODS);
+const camera = pick(CAMERA);
+const style = pick(STYLE);
+const perception = Math.random() < 0.35 ? pick(PERCEPTION) : null;
+const variation = Math.random() < 0.5 ? pick(CORE_VARIATION) : null;
+
+lastVals = { location, time, weather, season, mood, camera, style, perception, variation };
+
+const parts = [
+“United States of America”, location, season, time, weather,
+`mood: ${mood}`, camera, style,
+…(perception ? [perception] : []),
+CORE_FIXED,
+…(variation ? [variation] : []),
+“cinematic everyday America, filmic photography, natural light, high detail, no people”
+];
+
+currentPrompt = parts.join(”, “);
+
+document.getElementById(“emptyState”).style.display = “none”;
+document.getElementById(“result”).style.display = “block”;
+document.getElementById(“saveBtn”).style.display = “block”;
+renderResultFields();
 }
 
 function copyPrompt() {
-  if (!currentPrompt) return;
-  navigator.clipboard.writeText(currentPrompt).then(() => {
-    const btn = document.getElementById("copyBtn");
-    btn.textContent = "Copied ✓"; btn.classList.add("copied");
-    setTimeout(() => { btn.textContent = "Copy"; btn.classList.remove("copied"); }, 2000);
-  });
+currentPrompt = document.getElementById(“promptTextarea”)?.value || currentPrompt;
+if (!currentPrompt) return;
+navigator.clipboard.writeText(currentPrompt).then(() => {
+const btn = document.getElementById(“copyBtn”);
+btn.textContent = “Copied ✓”; btn.classList.add(“copied”);
+setTimeout(() => { btn.textContent = “Copy”; btn.classList.remove(“copied”); }, 2000);
+});
 }
 
 function savePrompt() {
-  if (!currentPrompt) return;
-  let saved = JSON.parse(localStorage.getItem("cin_america_v1") || "[]");
-  if (saved.includes(currentPrompt)) return;
-  saved.unshift(currentPrompt);
-  localStorage.setItem("cin_america_v1", JSON.stringify(saved.slice(0, 30)));
-  renderSaved();
+if (!currentPrompt) return;
+let saved = JSON.parse(localStorage.getItem(“cin_america_v1”) || “[]”);
+if (saved.includes(currentPrompt)) return;
+saved.unshift(currentPrompt);
+localStorage.setItem(“cin_america_v1”, JSON.stringify(saved.slice(0, 30)));
+renderSaved();
 }
 
 function renderSaved() {
-  const saved = JSON.parse(localStorage.getItem("cin_america_v1") || "[]");
-  const section = document.getElementById("savedSection");
-  const list = document.getElementById("savedList");
-  if (saved.length === 0) { section.style.display = "none"; return; }
-  section.style.display = "block";
-  list.innerHTML = saved.map((p, i) => `<div class="saved-item" data-index="${i}">${p}</div>`).join("");
-  document.querySelectorAll(".saved-item").forEach(el => {
-    el.onclick = () => navigator.clipboard.writeText(saved[el.dataset.index]);
-  });
+const saved = JSON.parse(localStorage.getItem(“cin_america_v1”) || “[]”);
+const section = document.getElementById(“savedSection”);
+const list = document.getElementById(“savedList”);
+if (saved.length === 0) { section.style.display = “none”; return; }
+section.style.display = “block”;
+list.innerHTML = saved.map((p, i) => `<div class="saved-item" data-index="${i}">${p}</div>`).join(””);
+document.querySelectorAll(”.saved-item”).forEach(el => {
+el.onclick = () => navigator.clipboard.writeText(saved[el.dataset.index]);
+});
 }
 
 renderSaved();
