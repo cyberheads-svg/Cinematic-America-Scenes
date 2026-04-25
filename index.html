@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="ja" style="background:#080608">
 <head>
 <meta charset="UTF-8">
@@ -17,42 +16,41 @@
   html{background:#080608}
   body{background:var(--bg);color:var(--text);font-family:var(--mono);min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:48px 20px 60px}
   header{text-align:center;margin-bottom:36px}
-  .eyebrow{font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+ .eyebrow{font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
   h1{font-family:var(--serif);font-style:italic;font-size:clamp(26px,5vw,42px);color:#fff;font-weight:400;line-height:1.1;margin-bottom:4px}
   h1 span{color:var(--accent)}
-  .subtitle{font-size:11px;color:var(--muted);margin-top:6px;letter-spacing:.15em}
-  .counter{font-size:10px;color:var(--dim);margin-top:8px;letter-spacing:.2em}
-  .theme-label{margin-top:14px;font-size:9px;letter-spacing:.2em;color:#281e10;text-transform:uppercase;font-family:'DM Mono',monospace}
-  .card{width:100%;max-width:560px;background:var(--panel);border:1px solid var(--border);padding:32px;margin-bottom:20px}
-  .empty-state{text-align:center;padding:40px 0;color:var(--dim)}
-  .empty-icon{font-size:40px;margin-bottom:12px;opacity:.5}
-  .empty-text{font-size:12px;line-height:1.7;letter-spacing:.05em}
-  .fields{display:flex;flex-direction:column;gap:16px;margin-bottom:28px}
-  .field-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);padding-top:4px;line-height:1.4}
-  .field-value{font-family:var(--serif);font-style:italic;font-size:16px;line-height:1.4}
-  .rare-badge{font-family:var(--mono);font-size:8px;letter-spacing:.15em;text-transform:uppercase;padding:1px 6px;border:1px solid currentColor;opacity:.6;margin-left:8px;vertical-align:middle;font-style:normal}
-  .divider{border:none;border-top:1px solid var(--border);margin-bottom:20px}
-  .prompt-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
-  .prompt-text{font-family:var(--mono);font-size:11px;color:var(--muted);line-height:1.9;margin-bottom:14px;word-break:break-word}
-  .copy-btn{background:transparent;border:1px solid var(--border2);color:var(--muted);padding:7px 18px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;font-family:var(--mono);transition:all .15s}
-  .copy-btn:hover{border-color:var(--accent);color:var(--accent)}
-  .copy-btn.copied{border-color:var(--accent3);color:var(--accent3)}
-  .generate-btn{width:100%;max-width:560px;background:transparent;border:1px solid #302010;color:var(--accent);padding:16px;font-size:11px;letter-spacing:.35em;text-transform:uppercase;cursor:pointer;font-family:var(--mono);transition:all .2s;margin-bottom:12px}
-  .generate-btn:hover{background:#180e08;border-color:var(--accent)}
-  .save-btn{width:100%;max-width:560px;background:transparent;border:1px solid var(--border);color:var(--muted);padding:12px;font-size:10px;letter-spacing:.25em;text-transform:uppercase;cursor:pointer;font-family:var(--mono);transition:all .2s;margin-bottom:40px}
-  .save-btn:hover{border-color:var(--border2);color:var(--text)}
-  .saved-section{width:100%;max-width:560px}
-  .saved-title{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border)}
-  .saved-item{background:var(--panel);border:1px solid var(--border);padding:12px 16px;margin-bottom:8px;font-size:11px;color:var(--muted);line-height:1.7;cursor:pointer;transition:border-color .15s}
-  .saved-item:hover{border-color:var(--border2);color:var(--text)}
+ .subtitle{font-size:11px;color:var(--muted);margin-top:6px;letter-spacing:.15em}
+ .counter{font-size:10px;color:var(--dim);margin-top:8px;letter-spacing:.2em}
+ .theme-label{margin-top:14px;font-size:9px;letter-spacing:.2em;color:#6a5a50;text-transform:uppercase;font-family:'DM Mono',monospace}
+ .card{width:100%;max-width:560px;background:var(--panel);border:1px solid var(--border);padding:32px;margin-bottom:20px}
+ .empty-state{text-align:center;padding:40px 0;color:var(--dim)}
+ .empty-icon{font-size:40px;margin-bottom:12px;opacity:.5}
+ .empty-text{font-size:12px;line-height:1.7;letter-spacing:.05em}
+ .fields{display:flex;flex-direction:column;gap:16px;margin-bottom:28px}
+ .field-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);padding-top:4px;line-height:1.4}
+ .field-value{font-family:var(--serif);font-style:italic;font-size:16px;line-height:1.4}
+ .rare-badge{font-family:var(--mono);font-size:8px;letter-spacing:.15em;text-transform:uppercase;padding:1px 6px;border:1px solid currentColor;opacity:.6;margin-left:8px;vertical-align:middle;font-style:normal}
+ .divider{border:none;border-top:1px solid var(--border);margin-bottom:20px}
+ .prompt-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+ .copy-btn{background:transparent;border:1px solid var(--border2);color:var(--muted);padding:7px 18px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;font-family:var(--mono);transition:all.15s}
+ .copy-btn:hover{border-color:var(--accent);color:var(--accent)}
+ .copy-btn.copied{border-color:var(--accent3);color:var(--accent3)}
+ .generate-btn{width:100%;max-width:560px;background:transparent;border:1px solid #302010;color:var(--accent);padding:16px;font-size:11px;letter-spacing:.35em;text-transform:uppercase;cursor:pointer;font-family:var(--mono);transition:all.2s;margin-bottom:12px}
+ .generate-btn:hover{background:#180e08;border-color:var(--accent)}
+ .save-btn{width:100%;max-width:560px;background:transparent;border:1px solid var(--border);color:var(--muted);padding:12px;font-size:10px;letter-spacing:.25em;text-transform:uppercase;cursor:pointer;font-family:var(--mono);transition:all.2s;margin-bottom:40px}
+ .save-btn:hover{border-color:var(--border2);color:var(--text)}
+ .saved-section{width:100%;max-width:560px}
+ .saved-title{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+ .saved-item{background:var(--panel);border:1px solid var(--border);padding:12px 16px;margin-bottom:8px;font-size:11px;color:var(--muted);line-height:1.7;cursor:pointer;transition:border-color.15s}
+ .saved-item:hover{border-color:var(--border2);color:var(--text)}
   footer{margin-top:20px;font-size:10px;color:var(--dim);letter-spacing:.15em;text-align:center}
   @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-  .animate-in{animation:fadeIn .3s ease forwards}
-  .field{display:grid;grid-template-columns:110px 1fr auto;gap:12px;align-items:start}
-  .reroll-btn{background:transparent;border:none;color:var(--muted);font-size:13px;cursor:pointer;padding:2px 6px;line-height:1;transition:color .15s;flex-shrink:0}
-  .reroll-btn:hover{color:var(--accent)}
-  .prompt-textarea{width:100%;background:#080406;border:1px solid var(--border2);color:var(--muted);font-family:var(--mono);font-size:11px;line-height:1.9;padding:12px;resize:vertical;min-height:100px;margin-bottom:14px;word-break:break-word}
-  .prompt-textarea:focus{outline:none;border-color:var(--accent)}
+ .animate-in{animation:fadeIn.3s ease forwards}
+ .field{display:grid;grid-template-columns:110px 1fr auto;gap:12px;align-items:start}
+ .reroll-btn{background:transparent;border:none;color:var(--muted);font-size:13px;cursor:pointer;padding:2px 6px;line-height:1;transition:color.15s;flex-shrink:0}
+ .reroll-btn:hover{color:var(--accent)}
+ .prompt-textarea{width:100%;background:#080406;border:1px solid var(--border2);color:var(--muted);font-family:var(--mono);font-size:11px;line-height:1.9;padding:12px;resize:vertical;min-height:100px;margin-bottom:14px;word-break:break-word}
+ .prompt-textarea:focus{outline:none;border-color:var(--accent)}
 </style>
 </head>
 <body>
@@ -81,635 +79,371 @@
   <div id="savedList"></div>
 </div>
 
-<footer>Cinematic America · Everyday Scene Generator · filmic prompts</footer>
+<footer>335 CINEMATIC LOCATIONS · NO PEOPLE · MV READY</footer>
 
 <script>
 let generated = 0;
 let currentPrompt = "";
-
 const pick = arr => arr[Math.floor(Math.random() * arr.length)];
 
 const LOCATIONS = [
-  "classic American diner interior at golden hour, sunlight streaming through large windows onto red vinyl booths",
-  "midnight diner counter, half-empty coffee cups and pie display case glowing under fluorescent light",
-  "roadside diner booth by the window, late afternoon light, crumpled napkin and empty mug",
-  "small town diner kitchen pass-through, warm light, plates ready on the counter",
-  "diner at blue hour, neon sign reflecting in wet parking lot outside",
-  "empty diner corner booth, jukebox glowing softly in the background",
-  "classic diner exterior at dusk, chrome and neon sign shining",
-  "diner breakfast counter with spinning pie case and worn red stools",
-  "diner at 6am, first customer of the day, steam rising from coffee cup",
-  "diner window seat, rain outside, half-eaten slice of pie, nobody waiting",
-  "small town gas station at golden hour, single pump under glowing neon sign, long shadows on concrete",
-  "roadside convenience store interior, fluorescent lights, quiet aisle with snack shelves",
-  "empty parking lot in front of a classic roadside motel, neon vacancy sign flickering",
-  "truck stop gas station at night, big rigs parked, warm light spilling from the shop",
-  "old-fashioned gas station with vintage pumps and faded Coca-Cola sign on the wall",
-  "roadside gas station at dusk, one attendant visible through the lit window",
-  "deserted highway rest stop, single vending machine glowing, nobody around",
-  "roadside fruit stand, hand-painted sign, afternoon light on the produce",
-  "car wash bay at dusk, empty and dripping, last light catching the water",
-  "highway overpass at golden hour, long shadows and abandoned shopping cart below",
-  "neighborhood dive bar interior in late afternoon, sunlight cutting through dusty air onto wooden bar",
-  "small town bar at twilight, jukebox glowing, empty stools and pool table in background",
-  "roadhouse bar exterior at night, neon beer signs reflecting on wet asphalt",
-  "dimly lit local bar with dark wood paneling, brass rail and glass bottles backlit",
-  "corner bar with frosted glass windows glowing amber, rain outside",
-  "dive bar at 4pm, two regulars at the bar, TV showing baseball with no sound",
-  "honky-tonk bar exterior, pickup trucks in the lot, neon boot sign above door",
-  "small jazz bar interior, low light and empty stage, chairs still on tables",
-  "pool hall interior, single overhead lamp on the table, blue chalk on the rail",
-  "rooftop bar in a mid-sized American city at golden hour, skyline in background, string lights overhead",
-  "rooftop lounge at blue hour, city lights starting to twinkle, empty high-top tables",
-  "hotel rooftop bar overlooking the city, soft lighting and glass railings",
-  "rooftop with lawn chairs, city below, nobody up here but you",
-  "rooftop water tower and satellite dishes at dusk, warm orange sky",
-  "dimly lit burlesque club interior, red velvet curtains, single spotlight on the empty stage",
-  "intimate cabaret venue at night, round tables and low theatrical lighting",
-  "vintage-style burlesque club, velvet booths and crystal chandelier, before the show",
-  "small cabaret stage with heavy red curtains and warm footlights, nobody performing yet",
-  "backstage dressing room with mirror and bare bulbs, feather boa on the chair",
-  "jazz cabaret interior, low ceiling and small stage, microphone stand alone in spotlight",
-  "classic roadside motel room interior, sunlight through half-closed curtains onto worn carpet",
-  "motel exterior corridor at blue hour, room doors lined up, neon sign in distance",
-  "empty motel swimming pool at dusk, still water reflecting fading sky",
-  "motel lobby at night, wood paneling and vending machine glow",
-  "motel parking lot at dawn, one car left, curtains drawn in every room",
-  "motel ice machine alcove at 2am, buzzing and dripping, harsh light",
-  "motel room balcony overlooking the highway, plastic chair, ashtray",
-  "quiet main street of a small American town at golden hour, long shadows across empty road",
-  "Victorian house porch in late afternoon light, porch swing gently moving",
-  "suburban street with mature trees, golden light filtering through leaves in fall",
-  "small town post office exterior, faded paint and American flag in soft morning light",
-  "quiet residential street at dusk, porch lights starting to come on one by one",
-  "small town barbershop exterior with striped pole, closed for the day",
-  "empty school parking lot on a summer Saturday, heat shimmer off the asphalt",
-  "town square with gazebo and war memorial, late afternoon light",
-  "front porch with rocking chair and screen door, summer evening",
-  "cul-de-sac at twilight, kids' bikes left on lawns, families inside",
-  "large suburban shopping mall exterior at golden hour, vast parking lot with scattered cars",
-  "inside a big American mall, wide corridor with skylight, afternoon light streaming down",
-  "food court in a shopping mall at off-peak hours, empty tables and glowing neon signs",
-  "McDonald's drive-thru at dusk, neon lights glowing, one car waiting at the window",
-  "Walmart supercenter parking lot at dusk, shopping carts scattered across the lot",
-  "Target store wide aisle with bright overhead lighting, almost empty",
-  "multiplex cinema exterior at dusk, large movie posters lit up, few cars in the lot",
-  "drive-in movie theater screen at twilight, speaker posts standing in rows",
-  "typical American strip mall at golden hour, long row of stores with parking in front",
-  "suburban cul-de-sac at dusk, kids' bikes left on driveways, garage doors closed",
-  "trailer park at golden hour, rows of mobile homes with American flags, long shadows",
-  "trailer home exterior at dusk, single light on inside, laundry hanging outside",
-  "traveling carnival at dusk, Ferris wheel lights turning on, colorful midway glowing",
-  "small county fair at golden hour, carnival rides and food stalls with American flags",
-  "small white wooden church with simple steeple, standing alone against a vast blue sky",
-  "red brick public library with heavy oak door, afternoon sun on the steps",
-  "small town fire station with open garage doors, fire trucks visible, afternoon light",
-  "yellow school bus parked in a row at golden hour, empty school parking lot",
-  "American farm at golden hour, red barn and silo against wide open sky",
-  "cornfield at dusk, endless rows disappearing into the horizon",
-  "farmhouse porch with rocking chair, American flag gently moving in the breeze",
-  "wooden pier at golden hour, waves crashing below, long shadows stretching across the planks",
-  "California boardwalk at dusk, colorful lights turning on, ocean breeze in the air",
-  "quiet coastal pier in the morning, fishermen casting lines, gentle waves below",
-  "outdoor farmers market at golden hour, colorful produce stalls under white tents",
-  "busy farmers market on a Saturday morning, fresh flowers and vegetables in wooden crates",
-  "small regional airport terminal at dawn, empty waiting area with fluorescent lights",
-  "airport runway at golden hour, single small plane waiting, vast sky above",
-  "classic donut shop at early morning, neon Open sign glowing, fresh donuts in the case",
-  "donut shop counter at 6am, coffee pots lined up, warm lighting and empty stools",
-  "high school football field at night, stadium lights on but no game happening",
-  "basketball court in a quiet suburban neighborhood at dusk, hoop and cracked asphalt",
-  "small baseball diamond in a local park, chain-link fence and evening light",
-  "little league baseball field at golden hour, perfectly maintained",
-  "street basketball court behind a school, chain net on the hoop, afternoon sun",
-  "24-hour laundromat interior, rows of machines spinning, warm light and empty chairs",
-  "laundromat at 2am, machines humming, single person folding clothes in silence",
-  "old coin laundromat with vintage machines and handwritten signs on yellow paper",
-  "American kitchen at golden hour, sunlight on linoleum floor, percolator on the counter",
-  "living room with television set, afternoon light through venetian blinds striping the wall",
-  "screen porch on a summer evening, ceiling fan turning, fireflies outside",
-  "kitchen table at dawn, single coffee cup, newspaper not yet opened",
-  "bedroom with patchwork quilt and morning light through lace curtains",
-  "bathroom with pink tile and pedestal sink, morning light from frosted glass window",
-  "basement with wood-paneled walls, old couch and shelves of paperbacks",
-  "attic with dust motes and afternoon light, cardboard boxes and old lamp",
-  "garage with single bulb, tools on pegboard, oil stain on the concrete floor",
-  "back porch at dusk, screen door, single chair, yard going dark",
-  "two-lane highway through flat midwestern farmland, late afternoon, nobody coming",
-  "grain elevator at sunrise, long shadow across empty road",
-  "pickup truck parked on a dirt road, engine off, nobody inside",
-  "river bend with old wooden bridge, afternoon light on the water",
-  "railroad crossing in a small town, gates up, no train coming",
-  "open field with single oak tree, golden hour light from the west",
-  "country road with telephone poles, sunset behind clouds, nobody driving",
-  "empty city bus interior at night, fluorescent light, seats all vacant",
-  "corner bodega at night, single worker, fluorescent light on the awning",
-  "apartment building fire escape at dusk, city sounds below, one person's chair",
-  "subway platform at off-peak hours, one person waiting, tile and light",
-  "bus stop bench at dawn, nobody there, morning paper in the box",
-  "urban parking garage top floor at twilight, city skyline visible beyond",
-  "empty basketball court in a city park, late afternoon, net swaying",
-  "city alley at golden hour, dumpsters and wall murals, light from the street end",
-  "NYC brownstone fire escape at golden hour, rusted iron and warm brick reflections",
-  "Chicago alleyway with steam rising from manholes, wet cobblestone reflections",
-  "midnight laundromat, neon signs reflected in glass doors of spinning dryers",
-  "modern office plaza, evening rain on gray pavement reflecting blue city lights",
-  "suburban garage driveway, portable basketball hoop and chalk drawings on concrete",
-  "lush green lawn with sprinklers at noon, white picket fence and blooming roses",
-  "post-Christmas quiet neighborhood, wilting wreaths on doors and gray sky",
-  "Victorian porch with carved pumpkins on steps, soft light from frosted windows",
-  "Greyhound bus terminal waiting area, plastic orange seats and hum of vending machines",
-  "fog-drenched San Francisco hills, cable car tracks disappearing into mist",
-  "highway rest stop, wooden picnic table under a solitary oak tree",
-  "quaint historical train station, creaking floorboards and dust motes in sunbeams",
-  "end-of-summer lakeside, peeling paint on a wooden pier and still blue water",
-  "vast wheat fields after harvest, giant hay bales casting long late-day shadows",
-  "Redwood forest trail in dense fog, shafts of morning light through canopy",
-  "desert highway Route 66, endless line of telephone poles toward the horizon",
-  "winter in Boston, frozen pond in the Common and orange glow of streetlamps",
-  "rooftop parking lot at dusk, rows of yellow lines and distant city silhouette",
-  "abandoned Drive-in theater, cracked screen and tall weeds in the gravel",
-  "bowling alley interior, glowing lanes and sound of pins under dim lights",
-  "high school hallway at 4pm, rows of lockers and light through high windows",
-  "art deco theater lobby, velvet ropes and smell of buttery popcorn",
-  "botanical garden greenhouse, misty glass and tropical leaves against gray sky",
-  "industrial canal side, rusted barges and concrete walls with faded graffiti",
-  "vintage record store aisle, crates of vinyl and posters on peeling walls",
-  "skate park at sunset, concrete bowls and silhouettes of longboards",
-  "diner across from the hospital, 3am, coffee cups and exhausted faces",
-  // === COLLEGE & CAMPUS ===
-  "university campus quad, red brick buildings and autumn leaves, students gone for the day",
-  "college town main street, vintage storefronts and bike racks, late afternoon",
-  "university library reading room, green lamp shades and tall shelves, evening quiet",
-  "college gymnasium with wooden bleachers, afternoon light from high windows",
-  "fraternity row at dawn, empty red cups on porches, morning after",
-  "campus coffee shop, mismatched furniture and laptop screens, mid-morning",
-  "outdoor amphitheater on a college campus, empty seats and a microphone stand",
-  "campus parking garage stairwell, concrete and fluorescent light",
-
-  // === MUSIC & ARTS ===
-  "indie music venue interior, low stage and sticky floor, before the show",
-  "backstage hallway of a small concert venue, tour posters and dim light",
-  "street corner with chalk drawings and a busker's empty case",
-  "art gallery white walls with spotlit paintings, opening night aftermath",
-  "graffiti mural alley, vivid colour on brick, afternoon light",
-  "recording studio control room, mixing board and red recording light",
-  "open mic night café, small stage and nervous energy, evening",
-  "used bookstore with live music corner, folding chairs and fairy lights",
-
-  // === SOUTHERN & REGIONAL ===
-  "front porch of a Southern colonial house, white columns and ceiling fan",
-  "bayou swamp edge, Spanish moss and still dark water, late afternoon",
-  "New Orleans French Quarter alley, wrought iron balconies and gas lamps",
-  "Savannah cobblestone square, live oaks dripping with moss, twilight",
-  "roadside boiled peanut stand, hand-painted sign and old lawn chairs",
-  "Cajun seafood shack exterior, string lights and picnic tables on gravel",
-  "Texas BBQ pit exterior, smoke rising, screen door, wooden bench",
-  "Appalachian mountain road, hairpin curve and valley view, autumn",
-  "tobacco barn in Virginia, weathered wood and evening light through gaps",
-
-  // === FOOD TRUCKS & OUTDOOR DINING ===
-  "food truck park at golden hour, string lights and picnic tables filling up",
-  "single food truck parked on an empty lot, serving window lit, late lunch",
-  "taco truck at the curb, evening light, regulars waiting on the sidewalk",
-  "food truck rally, colourful trucks lined up, crowd thinning at dusk",
-  "outdoor food market, pop-up canopies and folding tables, weekend morning",
-  "BBQ food truck in a parking lot, smoke rising, folding chairs beside it",
-  "ice cream truck on a residential street, summer afternoon, no one around",
-  "farmers market food vendor, cast iron and steam, early morning",
-
-  // === SUBURBAN RESIDENTIAL ===
-  "suburban cul-de-sac at golden hour, sprinklers running, nobody outside",
-  "backyard deck with string lights, summer evening, chairs pulled up",
-  "suburban garage with door open, car half-visible, tools on the wall",
-  "driveway basketball hoop at dusk, ball left on the concrete",
-  "mailbox row on a residential street, late afternoon light",
-  "neighbourhood pool at closing time, empty lanes and wet concrete",
-  "suburban backyard at dawn, dew on the grass, lawn chairs still folded",
-  "cul-de-sac fire hydrant with chalk lines around it, summer morning",
-  "HOA community park, empty playground and manicured lawn, weekday noon",
-  "neighbourhood walking trail, mature trees and power lines, autumn",
-
-  // === DOMESTIC INTERIORS ===
-  "suburban living room with sectional sofa, TV off, afternoon light through blinds",
-  "open-plan kitchen with island counter, morning light, coffee brewing",
-  "bedroom with unmade bed and clothes on the floor, morning light",
-  "teenager's bedroom, band posters and fairy lights, afternoon",
-  "home office with bookshelves and a desk lamp, evening",
-  "laundry room with front-loading machines, folded clothes on the counter",
-  "mudroom entry with hooks and shoes lined up, rain outside",
-  "sunroom with wicker furniture and plants, soft morning light",
-  "dining room with table set but nobody home, evening light from the window",
-  "walk-in closet with organised racks, warm light from above",
-  "upstairs hallway, framed photos on the wall, light from a bedroom door",
-  "bathroom vanity, mirror and morning light, toothbrush and soap",
-  "basement rec room, old couch and foosball table, fluorescent light",
-  "backyard shed interior, garden tools and potting soil, afternoon light through a small window",
-  "American kitchen at midnight, only the stove hood light on",
-
-  // === URBAN DETAILS ===
-  "Brooklyn waterfront, Manhattan skyline across the river, evening",
-  "Chicago L train elevated platform, city below, late afternoon",
-  "Miami Art Deco hotel exterior, pastel facade and palm tree shadow",
-  "Seattle Pike Place Market exterior, neon sign and wet cobblestones",
-  "Austin Sixth Street at 2pm, empty before the night begins",
-  "Nashville honky-tonk row in daylight, signs and empty sidewalk",
-  "Portland coffee shop with bike parking out front, misty morning",
-  "Denver 16th Street Mall, wide pedestrian street and light rail",
-  "Atlanta Beltline trail, urban greenway and mural walls",
-  "Detroit abandoned factory exterior, broken windows and weeds, golden hour",
-
-  // === PARKS & NATURE DETAILS ===
-  "national park trailhead parking lot at dawn, one car, ranger station dark",
-  "state park picnic shelter, empty concrete tables, overcast day",
-  "city park fountain, turned off for winter, leaves in the basin",
-  "hiking trail switchback with mountain view, nobody on the path",
-  "lake shore at a summer camp, dock and canoes, off-season quiet",
-  "swamp boardwalk trail, still water and cypress knees, morning mist",
-  "suburban nature trail, wooden bridge over a creek, autumn",
-  "beach parking lot at dawn, empty spaces and lifeguard tower",
-  "roadside scenic overlook, railing and valley view, afternoon haze",
-  "desert rest area, one picnic table, scrub brush, vast flat sky",
-
-  // === SERVICE & WORK ===
-  "auto repair shop interior, lift and tools, single mechanic bay",
-  "hair salon interior, styling chairs and mirrors, between clients",
-  "nail salon at closing, fluorescent light and acetone smell",
-  "tattoo parlour waiting area, portfolio books and flash art on walls",
-  "pawn shop exterior, crowded window display, neon sign",
-  "storage unit facility, rows of orange doors, early morning",
-  "self-storage office window at dusk, one light still on inside",
-  "car dealership lot at night, vehicles under floodlights, nobody there",
-  "gym interior, free weights and mirrors, midday quiet between rushes",
-  "yoga studio, wood floor and props stacked, natural light, class just ended",
-
-  // === TRANSIT & LIMINAL ===
-  "Greyhound bus interior, seats mostly empty, highway outside the window at night",
-  "airport baggage carousel, empty belt spinning, last flight landed",
-  "train station waiting bench, departure board above, late evening",
-  "ferry boat upper deck, open water and wind, afternoon",
-  "taxi stand outside a hotel at 4am, one cab waiting",
-  "ride-share pickup zone, concrete pillar and directional signs",
-  "long-term parking shuttle bus stop, nobody waiting, early morning",
-  "highway on-ramp at golden hour, merge lane and long shadow",
-
-  // === SEASONAL & HOLIDAY ===
-  "Halloween decorated porch, string lights and carved pumpkins, dusk",
-  "Christmas tree lot at night, lights and empty spaces, last trees standing",
-  "July 4th parade route the morning after, flags and litter on the sidewalk",
-  "Easter egg hunt park, morning after, plastic eggs left in the grass",
-  "Thanksgiving grocery store parking lot, morning of, everyone rushing",
-  "New Year's Eve bar exterior, line already forming at 9pm",
-  "Memorial Day weekend beach access, traffic cones and portable signs",
-  // === 住宅・生活エリア ===
-  "quiet suburban residential street lined with two-story colonial houses, American flags on porches",
-  "modest single-family ranch house with attached garage and basketball hoop in driveway",
-  "older neighborhood with mature oak trees, cracked sidewalks and blooming crepe myrtles",
-  "new housing development with identical beige stucco houses and bare sod lawns",
-  "apartment complex with balconies and shared parking lot at golden hour",
-  "mobile home park with clotheslines, satellite dishes and gravel roads",
-  "townhouse row with small front porches and shared driveways",
-  "backyard with above-ground pool covered for winter and faded plastic chairs",
-  "suburban backyard deck with string lights and empty grill at twilight",
-  "front yard with single oak tree and tire swing at golden hour",
-  "quiet residential alley behind houses, trash cans and power lines overhead",
-  "neighborhood sidewalk with chalk drawings and hopscotch grid",
-  "suburban street after rain, reflections in puddles and wet mailboxes",
-  "row of identical starter homes with tiny front lawns and one car in each driveway",
-  "older brick bungalow with wrap-around porch and hanging flower baskets",
-  "split-level house with basketball goal and basketball left on the grass",
-  "cul-de-sac with one streetlight on at dusk, nobody outside",
-  "apartment balcony overlooking parking lot, potted plants and laundry drying",
-  "modest brick ranch house with Christmas lights still up in February",
-  "neighborhood with mature magnolia trees and Spanish moss in the South",
-  "quiet street with one mailbox cluster and American flags waving",
-  "suburban driveway with oil stain and basketball hoop at golden hour",
-  "front porch with rocking chair and folded American flag",
-  "suburban backyard at dawn, dew on the grass and lawnmower tracks",
-  "neighborhood with one streetlight flickering at 2am, completely silent",
-
-  // === 公共・日常施設 ===
-  "small town post office with faded blue paint and American flag at half-mast",
-  "public library exterior with brick facade and bike rack out front",
-  "elementary school playground at dusk, empty swings and basketball court",
-  "high school football stadium bleachers empty on a weekday afternoon",
-  "community center with folding chairs visible through window and bulletin board outside",
-  "municipal building with white columns and flagpole, afternoon light",
-  "free clinic waiting room with plastic chairs and old magazines",
-  "veterans hall with faded banners and empty parking lot",
-  "town hall steps with American flag and empty benches",
-  "public swimming pool at closing time, empty lanes and wet concrete",
-  "recreation center gym with polished wooden floor and folded bleachers",
-  "senior center exterior with accessibility ramp and flower beds",
-  "courthouse steps with heavy stone pillars and pigeons",
-  "public park pavilion with picnic tables and empty grills",
-  "community garden with wooden raised beds and handwritten signs",
-  "public library reading room with green lamps and tall bookshelves",
-  "elementary school hallway with colorful student artwork on the walls",
-  "city hall lobby with marble floors and American flag",
-  "recreation center parking lot at dusk, last cars leaving",
-  "public park fountain with coins on the bottom, overcast day",
-
-  // === 商業・サービス施設 ===
-  "supermarket parking lot at 7am with employees arriving and carts scattered",
-  "24-hour convenience store with bright fluorescent glow at 3am",
-  "home improvement store parking lot full of pickup trucks on a Saturday",
-  "pharmacy drive-thru window at dusk with one car waiting",
-  "auto repair shop with car on lift and tools scattered across the floor",
-  "traditional barber shop interior with spinning striped pole and waiting chairs",
-  "pet store with puppies visible in window display, afternoon light",
-  "thrift store with colourful clothing racks spilling onto the sidewalk",
-  "dollar store exterior with bright yellow and red signage, empty lot",
-  "fast food strip with multiple drive-thrus at lunch hour",
-  "car wash vacuums and soap suds on the concrete, late afternoon",
-  "liquor store with bars on windows and faded ice chest outside",
-  "hardware store with lumber stacked outside, weekend morning",
-  "beauty supply store with bright signage, strip mall corner",
-  "self-storage facility corridor with rows of orange roll-up doors",
-  "dry cleaner interior, plastic-wrapped clothes on the carousel, fluorescent light",
-  "mattress store showroom, empty on a Tuesday afternoon",
-  "nail salon with neon open sign and pink lighting, closing time",
-  "pawn shop interior, crowded shelves and glass cases, afternoon",
-  "grocery store produce aisle, early morning stocking before opening",
-
-  // === 交通・インフラ ===
-  "Greyhound bus station waiting area at 2am, plastic orange seats and vending machines",
-  "small town train platform with one bench and ticket machine, nobody waiting",
-  "highway rest area with vending machines and picnic tables, midday",
-  "toll booth plaza at golden hour with empty lanes and orange cones",
-  "ferry terminal dock with cars lined up waiting, late afternoon",
-  "school bus depot with yellow buses parked in neat rows, early morning",
-  "abandoned railroad track overgrown with weeds and wildflowers, summer",
-  "bridge overlook with metal railing and valley view at dusk",
-  "bus stop shelter with bench and faded route map, nobody there",
-  "rural crossroads with four-way stop and faded directional signs",
-  "shipping container yard with stacked coloured metal boxes, golden hour",
-  "water tower with town name painted on the side, flat farmland below",
-  "grain elevator towering over flat farmland at sunrise",
-  "electrical substation fence at dusk, transformers humming",
-  "cell phone tower in a field at sunset, long shadow",
-  "railroad crossing with lowered gates and flashing red lights, nobody there",
-  "small town welcome sign on the side of the highway, afternoon light",
-  "underground parking garage exit ramp, harsh yellow lighting",
-  "airport baggage claim area, empty carousel spinning at 5am",
-  "highway overpass pedestrian walkway, city visible below at dusk"
-
+"classic American diner interior at golden hour, sunlight streaming through large windows onto red vinyl booths",
+"midnight diner counter, half-empty coffee cups and pie display case glowing under fluorescent light",
+"roadside diner booth by the window, late afternoon light, crumpled napkin and empty mug",
+"small town diner kitchen pass-through, warm light, plates ready on the counter",
+"diner at blue hour, neon sign reflecting in wet parking lot outside",
+"empty diner corner booth, jukebox glowing softly in the background",
+"classic diner exterior at dusk, chrome and neon sign shining",
+"diner breakfast counter with spinning pie case and worn red stools",
+"diner at 6am, first customer of the day, steam rising from coffee cup",
+"diner window seat, rain outside, half-eaten slice of pie, nobody waiting",
+"small town gas station at golden hour, single pump under glowing neon sign, long shadows on concrete",
+"roadside convenience store interior, fluorescent lights, quiet aisle with snack shelves",
+"empty parking lot in front of a classic roadside motel, neon vacancy sign flickering",
+"truck stop gas station at night, big rigs parked, warm light spilling from the shop",
+"old-fashioned gas station with vintage pumps and faded Coca-Cola sign on the wall",
+"roadside gas station at dusk, one attendant visible through the lit window",
+"deserted highway rest stop, single vending machine glowing, nobody around",
+"roadside fruit stand, hand-painted sign, afternoon light on the produce",
+"car wash bay at dusk, empty and dripping, last light catching the water",
+"highway overpass at golden hour, long shadows and abandoned shopping cart below",
+"neighborhood dive bar interior in late afternoon, sunlight cutting through dusty air onto wooden bar",
+"small town bar at twilight, jukebox glowing, empty stools and pool table in background",
+"roadhouse bar exterior at night, neon beer signs reflecting on wet asphalt",
+"dimly lit local bar with dark wood paneling, brass rail and glass bottles backlit",
+"corner bar with frosted glass windows glowing amber, rain outside",
+"dive bar at 4pm, two regulars at the bar, TV showing baseball with no sound",
+"honky-tonk bar exterior, pickup trucks in the lot, neon boot sign above door",
+"small jazz bar interior, low light and empty stage, chairs still on tables",
+"pool hall interior, single overhead lamp on the table, blue chalk on the rail",
+"rooftop bar in a mid-sized American city at golden hour, skyline in background, string lights overhead",
+"rooftop lounge at blue hour, city lights starting to twinkle, empty high-top tables",
+"hotel rooftop bar overlooking the city, soft lighting and glass railings",
+"rooftop with lawn chairs, city below, nobody up here but you",
+"rooftop water tower and satellite dishes at dusk, warm orange sky",
+"dimly lit burlesque club interior, red velvet curtains, single spotlight on the empty stage",
+"intimate cabaret venue at night, round tables and low theatrical lighting",
+"vintage-style burlesque club, velvet booths and crystal chandelier, before the show",
+"small cabaret stage with heavy red curtains and warm footlights, nobody performing yet",
+"backstage dressing room with mirror and bare bulbs, feather boa on the chair",
+"jazz cabaret interior, low ceiling and small stage, microphone stand alone in spotlight",
+"classic roadside motel room interior, sunlight through half-closed curtains onto worn carpet",
+"motel exterior corridor at blue hour, room doors lined up, neon sign in distance",
+"empty motel swimming pool at dusk, still water reflecting fading sky",
+"motel lobby at night, wood paneling and vending machine glow",
+"motel parking lot at dawn, one car left, curtains drawn in every room",
+"motel ice machine alcove at 2am, buzzing and dripping, harsh light",
+"motel room balcony overlooking the highway, plastic chair, ashtray",
+"quiet main street of a small American town at golden hour, long shadows across empty road",
+"Victorian house porch in late afternoon light, porch swing gently moving",
+"suburban street with mature trees, golden light filtering through leaves in fall",
+"small town post office exterior, faded paint and American flag in soft morning light",
+"quiet residential street at dusk, porch lights starting to come on one by one",
+"small town barbershop exterior with striped pole, closed for the day",
+"empty school parking lot on a summer Saturday, heat shimmer off the asphalt",
+"town square with gazebo and war memorial, late afternoon light",
+"front porch with rocking chair and screen door, summer evening",
+"cul-de-sac at twilight, kids' bikes left on lawns, families inside",
+"large suburban shopping mall exterior at golden hour, vast parking lot with scattered cars",
+"inside a big American mall, wide corridor with skylight, afternoon light streaming down",
+"food court in a shopping mall at off-peak hours, empty tables and glowing neon signs",
+"McDonald's drive-thru at dusk, neon lights glowing, one car waiting at the window",
+"Walmart supercenter parking lot at dusk, shopping carts scattered across the lot",
+"Target store wide aisle with bright overhead lighting, almost empty",
+"multiplex cinema exterior at dusk, large movie posters lit up, few cars in the lot",
+"drive-in movie theater screen at twilight, speaker posts standing in rows",
+"typical American strip mall at golden hour, long row of stores with parking in front",
+"suburban cul-de-sac at dusk, kids' bikes left on driveways, garage doors closed",
+"trailer park at golden hour, rows of mobile homes with American flags, long shadows",
+"trailer home exterior at dusk, single light on inside, laundry hanging outside",
+"traveling carnival at dusk, Ferris wheel lights turning on, colorful midway glowing",
+"small county fair at golden hour, carnival rides and food stalls with American flags",
+"small white wooden church with simple steeple, standing alone against a vast blue sky",
+"red brick public library with heavy oak door, afternoon sun on the steps",
+"small town fire station with open garage doors, fire trucks visible, afternoon light",
+"yellow school bus parked in a row at golden hour, empty school parking lot",
+"American farm at golden hour, red barn and silo against wide open sky",
+"cornfield at dusk, endless rows disappearing into the horizon",
+"farmhouse porch with rocking chair, American flag gently moving in the breeze",
+"wooden pier at golden hour, waves crashing below, long shadows stretching across the planks",
+"California boardwalk at dusk, colorful lights turning on, ocean breeze in the air",
+"quiet coastal pier in the morning, fishermen casting lines, gentle waves below",
+"outdoor farmers market at golden hour, colorful produce stalls under white tents",
+"busy farmers market on a Saturday morning, fresh flowers and vegetables in wooden crates",
+"small regional airport terminal at dawn, empty waiting area with fluorescent lights",
+"airport runway at golden hour, single small plane waiting, vast sky above",
+"classic donut shop at early morning, neon Open sign glowing, fresh donuts in the case",
+"donut shop counter at 6am, coffee pots lined up, warm lighting and empty stools",
+"high school football field at night, stadium lights on but no game happening",
+"basketball court in a quiet suburban neighborhood at dusk, hoop and cracked asphalt",
+"small baseball diamond in a local park, chain-link fence and evening light",
+"little league baseball field at golden hour, perfectly maintained",
+"street basketball court behind a school, chain net on the hoop, afternoon sun",
+"24-hour laundromat interior, rows of machines spinning, warm light and empty chairs",
+"laundromat at 2am, machines humming, single person folding clothes in silence",
+"old coin laundromat with vintage machines and handwritten signs on yellow paper",
+"American kitchen at golden hour, sunlight on linoleum floor, percolator on the counter",
+"living room with television set, afternoon light through venetian blinds striping the wall",
+"screen porch on a summer evening, ceiling fan turning, fireflies outside",
+"kitchen table at dawn, single coffee cup, newspaper not yet opened",
+"bedroom with patchwork quilt and morning light through lace curtains",
+"bathroom with pink tile and pedestal sink, morning light from frosted glass window",
+"basement with wood-paneled walls, old couch and shelves of paperbacks",
+"attic with dust motes and afternoon light, cardboard boxes and old lamp",
+"garage with single bulb, tools on pegboard, oil stain on the concrete floor",
+"back porch at dusk, screen door, single chair, yard going dark",
+"two-lane highway through flat midwestern farmland, late afternoon, nobody coming",
+"grain elevator at sunrise, long shadow across empty road",
+"pickup truck parked on a dirt road, engine off, nobody inside",
+"river bend with old wooden bridge, afternoon light on the water",
+"railroad crossing in a small town, gates up, no train coming",
+"open field with single oak tree, golden hour light from the west",
+"country road with telephone poles, sunset behind clouds, nobody driving",
+"empty city bus interior at night, fluorescent light, seats all vacant",
+"corner bodega at night, single worker, fluorescent light on the awning",
+"apartment building fire escape at dusk, city sounds below, one person's chair",
+"subway platform at off-peak hours, one person waiting, tile and light",
+"bus stop bench at dawn, nobody there, morning paper in the box",
+"urban parking garage top floor at twilight, city skyline visible beyond",
+"empty basketball court in a city park, late afternoon, net swaying",
+"city alley at golden hour, dumpsters and wall murals, light from the street end",
+"NYC brownstone fire escape at golden hour, rusted iron and warm brick reflections",
+"Chicago alleyway with steam rising from manholes, wet cobblestone reflections",
+"midnight laundromat, neon signs reflected in glass doors of spinning dryers",
+"modern office plaza, evening rain on gray pavement reflecting blue city lights",
+"suburban garage driveway, portable basketball hoop and chalk drawings on concrete",
+"lush green lawn with sprinklers at noon, white picket fence and blooming roses",
+"post-Christmas quiet neighborhood, wilting wreaths on doors and gray sky",
+"Victorian porch with carved pumpkins on steps, soft light from frosted windows",
+"Greyhound bus terminal waiting area, plastic orange seats and hum of vending machines",
+"fog-drenched San Francisco hills, cable car tracks disappearing into mist",
+"highway rest stop, wooden picnic table under a solitary oak tree",
+"quaint historical train station, creaking floorboards and dust motes in sunbeams",
+"end-of-summer lakeside, peeling paint on a wooden pier and still blue water",
+"vast wheat fields after harvest, giant hay bales casting long late-day shadows",
+"Redwood forest trail in dense fog, shafts of morning light through canopy",
+"desert highway Route 66, endless line of telephone poles toward the horizon",
+"winter in Boston, frozen pond in the Common and orange glow of streetlamps",
+"rooftop parking lot at dusk, rows of yellow lines and distant city silhouette",
+"abandoned Drive-in theater, cracked screen and tall weeds in the gravel",
+"bowling alley interior, glowing lanes and sound of pins under dim lights",
+"high school hallway at 4pm, rows of lockers and light through high windows",
+"art deco theater lobby, velvet ropes and smell of buttery popcorn",
+"botanical garden greenhouse, misty glass and tropical leaves against gray sky",
+"industrial canal side, rusted barges and concrete walls with faded graffiti",
+"vintage record store aisle, crates of vinyl and posters on peeling walls",
+"skate park at sunset, concrete bowls and silhouettes of longboards",
+"diner across from the hospital, 3am, coffee cups and exhausted faces",
+"university campus quad, red brick buildings and autumn leaves, students gone for the day",
+"college town main street, vintage storefronts and bike racks, late afternoon",
+"university library reading room, green lamp shades and tall shelves, evening quiet",
+"college gymnasium with wooden bleachers, afternoon light from high windows",
+"fraternity row at dawn, empty red cups on porches, morning after",
+"campus coffee shop, mismatched furniture and laptop screens, mid-morning",
+"outdoor amphitheater on a college campus, empty seats and a microphone stand",
+"campus parking garage stairwell, concrete and fluorescent light",
+"indie music venue interior, low stage and sticky floor, before the show",
+"backstage hallway of a small concert venue, tour posters and dim light",
+"street corner with chalk drawings and a busker's empty case",
+"art gallery white walls with spotlit paintings, opening night aftermath",
+"graffiti mural alley, vivid colour on brick, afternoon light",
+"recording studio control room, mixing board and red recording light",
+"open mic night café, small stage and nervous energy, evening",
+"used bookstore with live music corner, folding chairs and fairy lights",
+"front porch of a Southern colonial house, white columns and ceiling fan",
+"bayou swamp edge, Spanish moss and still dark water, late afternoon",
+"New Orleans French Quarter alley, wrought iron balconies and gas lamps",
+"Savannah cobblestone square, live oaks dripping with moss, twilight",
+"roadside boiled peanut stand, hand-painted sign and old lawn chairs",
+"Cajun seafood shack exterior, string lights and picnic tables on gravel",
+"Texas BBQ pit exterior, smoke rising, screen door, wooden bench",
+"Appalachian mountain road, hairpin curve and valley view, autumn",
+"tobacco barn in Virginia, weathered wood and evening light through gaps",
+"food truck park at golden hour, string lights and picnic tables filling up",
+"single food truck parked on an empty lot, serving window lit, late lunch",
+"taco truck at the curb, evening light, regulars waiting on the sidewalk",
+"food truck rally, colourful trucks lined up, crowd thinning at dusk",
+"outdoor food market, pop-up canopies and folding tables, weekend morning",
+"BBQ food truck in a parking lot, smoke rising, folding chairs beside it",
+"ice cream truck on a residential street, summer afternoon, no one around",
+"farmers market food vendor, cast iron and steam, early morning",
+"suburban cul-de-sac at golden hour, sprinklers running, nobody outside",
+"backyard deck with string lights, summer evening, chairs pulled up",
+"suburban garage with door open, car half-visible, tools on the wall",
+"driveway basketball hoop at dusk, ball left on the concrete",
+"mailbox row on a residential street, late afternoon light",
+"neighbourhood pool at closing time, empty lanes and wet concrete",
+"suburban backyard at dawn, dew on the grass, lawn chairs still folded",
+"cul-de-sac fire hydrant with chalk lines around it, summer morning",
+"HOA community park, empty playground and manicured lawn, weekday noon",
+"neighbourhood walking trail, mature trees and power lines, autumn",
+"suburban living room with sectional sofa, TV off, afternoon light through blinds",
+"open-plan kitchen with island counter, morning light, coffee brewing",
+"bedroom with unmade bed and clothes on the floor, morning light",
+"teenager's bedroom, band posters and fairy lights, afternoon",
+"home office with bookshelves and a desk lamp, evening",
+"laundry room with front-loading machines, folded clothes on the counter",
+"mudroom entry with hooks and shoes lined up, rain outside",
+"sunroom with wicker furniture and plants, soft morning light",
+"dining room with table set but nobody home, evening light from the window",
+"walk-in closet with organised racks, warm light from above",
+"upstairs hallway, framed photos on the wall, light from a bedroom door",
+"bathroom vanity, mirror and morning light, toothbrush and soap",
+"basement rec room, old couch and foosball table, fluorescent light",
+"backyard shed interior, garden tools and potting soil, afternoon light through a small window",
+"American kitchen at midnight, only the stove hood light on",
+"Brooklyn waterfront, Manhattan skyline across the river, evening",
+"Chicago L train elevated platform, city below, late afternoon",
+"Miami Art Deco hotel exterior, pastel facade and palm tree shadow",
+"Seattle Pike Place Market exterior, neon sign and wet cobblestones",
+"Austin Sixth Street at 2pm, empty before the night begins",
+"Nashville honky-tonk row in daylight, signs and empty sidewalk",
+"Portland coffee shop with bike parking out front, misty morning",
+"Denver 16th Street Mall, wide pedestrian street and light rail",
+"Atlanta Beltline trail, urban greenway and mural walls",
+"Detroit abandoned factory exterior, broken windows and weeds, golden hour",
+"national park trailhead parking lot at dawn, one car, ranger station dark",
+"state park picnic shelter, empty concrete tables, overcast day",
+"city park fountain, turned off for winter, leaves in the basin",
+"hiking trail switchback with mountain view, nobody on the path",
+"lake shore at a summer camp, dock and canoes, off-season quiet",
+"swamp boardwalk trail, still water and cypress knees, morning mist",
+"suburban nature trail, wooden bridge over a creek, autumn",
+"beach parking lot at dawn, empty spaces and lifeguard tower",
+"roadside scenic overlook, railing and valley view, afternoon haze",
+"desert rest area, one picnic table, scrub brush, vast flat sky",
+"auto repair shop interior, lift and tools, single mechanic bay",
+"hair salon interior, styling chairs and mirrors, between clients",
+"nail salon at closing, fluorescent light and acetone smell",
+"tattoo parlour waiting area, portfolio books and flash art on walls",
+"pawn shop exterior, crowded window display, neon sign",
+"storage unit facility, rows of orange doors, early morning",
+"self-storage office window at dusk, one light still on inside",
+"car dealership lot at night, vehicles under floodlights, nobody there",
+"gym interior, free weights and mirrors, midday quiet between rushes",
+"yoga studio, wood floor and props stacked, natural light, class just ended",
+"Greyhound bus interior, seats mostly empty, highway outside the window at night",
+"airport baggage carousel, empty belt spinning, last flight landed",
+"train station waiting bench, departure board above, late evening",
+"ferry boat upper deck, open water and wind, afternoon",
+"taxi stand outside a hotel at 4am, one cab waiting",
+"ride-share pickup zone, concrete pillar and directional signs",
+"long-term parking shuttle bus stop, nobody waiting, early morning",
+"highway on-ramp at golden hour, merge lane and long shadow",
+"Halloween decorated porch, string lights and carved pumpkins, dusk",
+"Christmas tree lot at night, lights and empty spaces, last trees standing",
+"July 4th parade route the morning after, flags and litter on the sidewalk",
+"Easter egg hunt park, morning after, plastic eggs left in the grass",
+"Thanksgiving grocery store parking lot, morning of, everyone rushing",
+"New Year's Eve bar exterior, line already forming at 9pm",
+"Memorial Day weekend beach access, traffic cones and portable signs",
+"quiet suburban residential street lined with two-story colonial houses, American flags on porches",
+"modest single-family ranch house with attached garage and basketball hoop in driveway",
+"older neighborhood with mature oak trees, cracked sidewalks and blooming crepe myrtles",
+"new housing development with identical beige stucco houses and bare sod lawns",
+"apartment complex with balconies and shared parking lot at golden hour",
+"mobile home park with clotheslines, satellite dishes and gravel roads",
+"townhouse row with small front porches and shared driveways",
+"backyard with above-ground pool covered for winter and faded plastic chairs",
+"suburban backyard deck with string lights and empty grill at twilight",
+"front yard with single oak tree and tire swing at golden hour",
+"quiet residential alley behind houses, trash cans and power lines overhead",
+"neighborhood sidewalk with chalk drawings and hopscotch grid",
+"suburban street after rain, reflections in puddles and wet mailboxes",
+"row of identical starter homes with tiny front lawns and one car in each driveway",
+"older brick bungalow with wrap-around porch and hanging flower baskets",
+"split-level house with basketball goal and basketball left on the grass",
+"cul-de-sac with one streetlight on at dusk, nobody outside",
+"apartment balcony overlooking parking lot, potted plants and laundry drying",
+"modest brick ranch house with Christmas lights still up in February",
+"neighborhood with mature magnolia trees and Spanish moss in the South",
+"quiet street with one mailbox cluster and American flags waving",
+"suburban driveway with oil stain and basketball hoop at golden hour",
+"front porch with rocking chair and folded American flag",
+"suburban backyard at dawn, dew on the grass and lawnmower tracks",
+"neighborhood with one streetlight flickering at 2am, completely silent",
+"small town post office with faded blue paint and American flag at half-mast",
+"public library exterior with brick facade and bike rack out front",
+"elementary school playground at dusk, empty swings and basketball court",
+"high school football stadium bleachers empty on a weekday afternoon",
+"community center with folding chairs visible through window and bulletin board outside",
+"municipal building with white columns and flagpole, afternoon light",
+"free clinic waiting room with plastic chairs and old magazines",
+"veterans hall with faded banners and empty parking lot",
+"town hall steps with American flag and empty benches",
+"public swimming pool at closing time, empty lanes and wet concrete",
+"recreation center gym with polished wooden floor and folded bleachers",
+"senior center exterior with accessibility ramp and flower beds",
+"courthouse steps with heavy stone pillars and pigeons",
+"public park pavilion with picnic tables and empty grills",
+"community garden with wooden raised beds and handwritten signs",
+"public library reading room with green lamps and tall bookshelves",
+"elementary school hallway with colorful student artwork on the walls",
+"city hall lobby with marble floors and American flag",
+"recreation center parking lot at dusk, last cars leaving",
+"public park fountain with coins on the bottom, overcast day",
+"supermarket parking lot at 7am with employees arriving and carts scattered",
+"24-hour convenience store with bright fluorescent glow at 3am",
+"home improvement store parking lot full of pickup trucks on a Saturday",
+"pharmacy drive-thru window at dusk with one car waiting",
+"auto repair shop with car on lift and tools scattered across the floor",
+"traditional barber shop interior with spinning striped pole and waiting chairs",
+"pet store with puppies visible in window display, afternoon light",
+"thrift store with colourful clothing racks spilling onto the sidewalk",
+"dollar store exterior with bright yellow and red signage, empty lot",
+"fast food strip with multiple drive-thrus at lunch hour",
+"car wash vacuums and soap suds on the concrete, late afternoon",
+"liquor store with bars on windows and faded ice chest outside",
+"hardware store with lumber stacked outside, weekend morning",
+"beauty supply store with bright signage, strip mall corner",
+"self-storage facility corridor with rows of orange roll-up doors",
+"dry cleaner interior, plastic-wrapped clothes on the carousel, fluorescent light",
+"mattress store showroom, empty on a Tuesday afternoon",
+"nail salon with neon open sign and pink lighting, closing time",
+"pawn shop interior, crowded shelves and glass cases, afternoon",
+"grocery store produce aisle, early morning stocking before opening",
+"Greyhound bus station waiting area at 2am, plastic orange seats and vending machines",
+"small town train platform with one bench and ticket machine, nobody waiting",
+"highway rest area with vending machines and picnic tables, midday",
+"toll booth plaza at golden hour with empty lanes and orange cones",
+"ferry terminal dock with cars lined up waiting, late afternoon",
+"school bus depot with yellow buses parked in neat rows, early morning",
+"abandoned railroad track overgrown with weeds and wildflowers, summer",
+"bridge overlook with metal railing and valley view at dusk",
+"bus stop shelter with bench and faded route map, nobody there",
+"rural crossroads with four-way stop and faded directional signs",
+"shipping container yard with stacked coloured metal boxes, golden hour",
+"water tower with town name painted on the side, flat farmland below",
+"grain elevator towering over flat farmland at sunrise",
+"electrical substation fence at dusk, transformers humming",
+"cell phone tower in a field at sunset, long shadow",
+"railroad crossing with lowered gates and flashing red lights, nobody there",
+"small town welcome sign on the side of the highway, afternoon light",
+"underground parking garage exit ramp, harsh yellow lighting",
+"airport baggage claim area, empty carousel spinning at 5am",
+"highway overpass pedestrian walkway, city visible below at dusk"
 ];
 
-const TIMES = [
-  "golden hour at sunset, long warm shadows stretching east",
-  "harsh midday sun, deep short shadows, bleached colour",
-  "early morning, low sun casting long diagonal shadows",
-  "late afternoon, amber light turning everything golden",
-  "just after sunrise, soft directional light, dew still on surfaces",
-  "blue hour just after sunset, sky deepening to indigo",
-  "mid-morning, crisp clear light, day fully underway",
-  "noon with almost no shadow, everything exposed",
-  "late evening, day cooling, light going soft and warm",
-  "3am under sodium streetlights, orange cast on everything",
-  "pre-dawn, sky barely lightening, one bird already calling",
-  "twilight, shapes losing definition, lights starting to matter",
-  "overcast midday, flat diffused light, no shadows at all",
-  "dusk, the last ten minutes before dark",
-  "morning rush hour, strong raking light, everyone in motion"
-];
-
-const WEATHER = [
-  "clear blue sky, no clouds, perfect natural light",
-  "overcast with soft even cloud cover, no harsh shadows",
-  "light summer rain, everything slightly wet and shining",
-  "heat haze shimmering off asphalt, deep summer",
-  "autumn day, leaves turning, cool clear air",
-  "dry winter cold, bare trees, low sun, sharp shadows",
-  "humid summer evening, air heavy, everything slightly damp",
-  "thin clouds softening the sunlight, warm and hazy",
-  "just after rain, everything freshly wet, sky clearing",
-  "dense morning fog slowly lifting",
-  "thunderstorm building in the distance, sky turning green",
-  "post-storm clarity, washed air and sharp light",
-  "late summer humidity, everything lush and slightly oppressive",
-  "early spring, cold and clear, first warm day",
-  "dust in the air, dry wind from the west, light going amber"
-];
-
-const SEASONS = [
-  "peak American summer, lush and humid",
-  "early fall, leaves just beginning to turn",
-  "deep midwestern winter, bare trees and frozen ground",
-  "spring bloom, everything green and new",
-  "late summer, heat fading but still present",
-  "October, full autumn colour",
-  "February, cold and spare but bright",
-  "April, rain and new growth",
-  "July heat, baked and still",
-  "November, stripped back, low light"
-];
-
-const MOODS = [
-  "quietly beautiful, no drama needed",
-  "nostalgic without being sad",
-  "the feeling of a Sunday afternoon with nowhere to be",
-  "something just happened or is about to",
-  "ordinary and somehow perfect",
-  "the loneliness that isn't quite loneliness",
-  "warm and slightly melancholic",
-  "the last moment before everything changes",
-  "unhurried and real",
-  "beautiful in a way that doesn't announce itself",
-  "the quality of light that makes you stop",
-  "intimately observed, like a private photograph",
-  "the texture of a life being lived",
-  "still and charged at the same time",
-  "the kind of scene a filmmaker would remember years later"
-];
-
-const CAMERA = [
-  "wide angle 24mm, vast sky dominating frame",
-  "50mm lens, natural perspective, mid-distance",
-  "85mm portrait lens, shallow depth of field, background softened",
-  "long telephoto 200mm, compressed perspective",
-  "low angle looking up at sign or sky",
-  "high angle looking down at street or floor",
-  "locked-off static shot, perfectly composed",
-  "handheld, slightly unsteady, documentary feel",
-  "through a window, reflections layered with interior",
-  "silhouette against the light",
-  "extreme close-up of texture and surface detail",
-  "slow dolly move along an empty space",
-  "bird's eye view from above",
-  "rack focus from foreground detail to background",
-  "through windshield, dashboard reflection visible"
-];
-
-const STYLE = [
-  "Kodak Portra 400 film aesthetic, warm and slightly faded",
-  "35mm film grain, saturated American colours",
-  "digital cinema, warm teal and orange grade",
-  "Terrence Malick golden hour cinematography",
-  "Edward Hopper painting quality, light and stillness",
-  "Stephen Shore photography, deadpan American everyday",
-  "William Eggleston colour photography, banal and beautiful",
-  "soft focus dreamlike quality, hazy edges",
-  "crisp architectural photography, clean and precise",
-  "gritty street photography, unflinching and real",
-  "contemporary American indie film look",
-  "hyperrealistic CGI environment, photographic clarity",
-  "long lens heat haze, shimmering and compressed",
-  "bleach bypass processing, desaturated with contrast",
-  "Super 8 film aesthetic, warm grain and vignette"
-];
-
-const PERCEPTION = [
-  "slight focus drift, as if the lens is struggling to settle",
-  "subtle temporal lag, movement feels delayed",
-  "soft motion blur lingering after stillness",
-  "light flickers unnaturally, barely perceptible",
-  "colours slightly misaligned, like a memory offset",
-  "depth feels inconsistent, foreground and background blending",
-  "visual noise creeping in like analog signal decay",
-  "frame feels almost still, but not completely frozen"
-];
-
+const TIMES = ["golden hour at sunset, long warm shadows stretching east","harsh midday sun, deep short shadows, bleached colour","early morning, low sun casting long diagonal shadows","late afternoon, amber light turning everything golden","just after sunrise, soft directional light, dew still on surfaces","blue hour just after sunset, sky deepening to indigo","mid-morning, crisp clear light, day fully underway","noon with almost no shadow, everything exposed","late evening, day cooling, light going soft and warm","3am under sodium streetlights, orange cast on everything","pre-dawn, sky barely lightening, one bird already calling","twilight, shapes losing definition, lights starting to matter","overcast midday, flat diffused light, no shadows at all","dusk, the last ten minutes before dark","morning rush hour, strong raking light, everyone in motion"];
+const WEATHER = ["clear blue sky, no clouds, perfect natural light","overcast with soft even cloud cover, no harsh shadows","light summer rain, everything slightly wet and shining","heat haze shimmering off asphalt, deep summer","autumn day, leaves turning, cool clear air","dry winter cold, bare trees, low sun, sharp shadows","humid summer evening, air heavy, everything slightly damp","thin clouds softening the sunlight, warm and hazy","just after rain, everything freshly wet, sky clearing","dense morning fog slowly lifting","thunderstorm building in the distance, sky turning green","post-storm clarity, washed air and sharp light","late summer humidity, everything lush and slightly oppressive","early spring, cold and clear, first warm day","dust in the air, dry wind from the west, light going amber"];
+const SEASONS = ["peak American summer, lush and humid","early fall, leaves just beginning to turn","deep midwestern winter, bare trees and frozen ground","spring bloom, everything green and new","late summer, heat fading but still present","October, full autumn colour","February, cold and spare but bright","April, rain and new growth","July heat, baked and still","November, stripped back, low light"];
+const MOODS = ["quietly beautiful, no drama needed","nostalgic without being sad","the feeling of a Sunday afternoon with nowhere to be","something just happened or is about to","ordinary and somehow perfect","the loneliness that isn't quite loneliness","warm and slightly melancholic","the last moment before everything changes","unhurried and real","beautiful in a way that doesn't announce itself","the quality of light that makes you stop","intimately observed, like a private photograph","the texture of a life being lived","still and charged at the same time","the kind of scene a filmmaker would remember years later"];
+const CAMERA = ["wide angle 24mm, vast sky dominating frame","50mm lens, natural perspective, mid-distance","85mm portrait lens, shallow depth of field, background softened","long telephoto 200mm, compressed perspective","low angle looking up at sign or sky","high angle looking down at street or floor","locked-off static shot, perfectly composed","handheld, slightly unsteady, documentary feel","through a window, reflections layered with interior","silhouette against the light","extreme close-up of texture and surface detail","slow dolly move along an empty space","bird's eye view from above","rack focus from foreground detail to background","through windshield, dashboard reflection visible"];
+const STYLE = ["Kodak Portra 400 film aesthetic, warm and slightly faded","35mm film grain, saturated American colours","digital cinema, warm teal and orange grade","Terrence Malick golden hour cinematography","Edward Hopper painting quality, light and stillness","Stephen Shore photography, deadpan American everyday","William Eggleston colour photography, banal and beautiful","soft focus dreamlike quality, hazy edges","crisp architectural photography, clean and precise","gritty street photography, unflinching and real","contemporary American indie film look","hyperrealistic CGI environment, photographic clarity","long lens heat haze, shimmering and compressed","bleach bypass processing, desaturated with contrast","Super 8 film aesthetic, warm grain and vignette"];
+const PERCEPTION = ["slight focus drift, as if the lens is struggling to settle","subtle temporal lag, movement feels delayed","soft motion blur lingering after stillness","light flickers unnaturally, barely perceptible","colours slightly misaligned, like a memory offset","depth feels inconsistent, foreground and background blending","visual noise creeping in like analog signal decay","frame feels almost still, but not completely frozen"];
 const CORE_FIXED = "the quiet weight of an ordinary moment";
-
-const CORE_VARIATION = [
-  "something here will be remembered long after it's gone",
-  "the world going on as it always does, beautiful for no reason",
-  "as if the camera arrived just in time"
-];
-
+const CORE_VARIATION = ["something here will be remembered long after it's gone","the world going on as it always does, beautiful for no reason","as if the camera arrived just in time"];
 const FIELD_COLORS = ["#fcd34d","#fda4af","#86efac","#67e8f9","#c084fc","#a5f3fc","#d9f99d","#fed7aa"];
 
 let lastVals = {};
-
-function reroll(key) {
-  const sources = {
-    location: LOCATIONS, time: TIMES, weather: WEATHER,
-    season: SEASONS, mood: MOODS, camera: CAMERA, style: STYLE
-  };
-  if (sources[key]) lastVals[key] = pick(sources[key]);
-  else if (key === 'perception') lastVals.perception = Math.random() < 0.35 ? pick(PERCEPTION) : null;
-  rebuildPrompt();
-}
-
-function rebuildPrompt() {
-  const v = lastVals;
-  const parts = [
-    "United States of America", v.location, v.season, v.time, v.weather,
-    `mood: ${v.mood}`, v.camera, v.style,
-    ...(v.perception ? [v.perception] : []),
-    CORE_FIXED,
-    ...(v.variation ? [v.variation] : []),
-    "cinematic everyday America, filmic photography, natural light, high detail, no people"
-  ];
-  currentPrompt = parts.join(", ");
-  document.getElementById("promptTextarea").value = currentPrompt;
-  renderResultFields();
-}
-
-function renderResultFields() {
-  const v = lastVals;
-  const fields = [
-    { label: "ロケーション", value: v.location, color: FIELD_COLORS[0], key: "location" },
-    { label: "季節", value: v.season, color: FIELD_COLORS[1], key: "season" },
-    { label: "時間帯", value: v.time, color: FIELD_COLORS[2], key: "time" },
-    { label: "天気", value: v.weather, color: FIELD_COLORS[3], key: "weather" },
-    { label: "ムード", value: v.mood, color: FIELD_COLORS[4], key: "mood" },
-    { label: "カメラ", value: v.camera, color: FIELD_COLORS[5], key: "camera" },
-    { label: "スタイル", value: v.style, color: FIELD_COLORS[6], key: "style" },
-  ];
-  if (v.perception) fields.push({ label: "知覚歪曲", value: v.perception, color: "#c084fc", key: "perception", rare: true });
-
-  const fieldsHTML = fields.map(f => `
-    <div class="field">
-      <div class="field-label">${f.label}</div>
-      <div class="field-value" style="color:${f.color}">
-        ${f.value}${f.rare ? `<span class="rare-badge" style="color:${f.color}">rare</span>` : ""}
-      </div>
-      <button class="reroll-btn" onclick="reroll('${f.key}')" title="Re-roll">🔄</button>
-    </div>
-  `).join("");
-
-  document.getElementById("result").innerHTML = `
-    <div class="fields animate-in">${fieldsHTML}</div>
-    <hr class="divider">
-    <div class="prompt-label">画像AIにコピー</div>
-    <textarea class="prompt-textarea" id="promptTextarea" onInput="currentPrompt=this.value"></textarea>
-
-```
-<button class="copy-btn" id="copyBtn" onclick="copyPrompt()">Copy</button>
-```
-
-`;
-document.getElementById(“promptTextarea”).value = currentPrompt;
-}
-
-function generate() {
-generated++;
-document.getElementById(“counter”).textContent = `${generated} generated`;
-
-const location = pick(LOCATIONS);
-const time = pick(TIMES);
-const weather = pick(WEATHER);
-const season = pick(SEASONS);
-const mood = pick(MOODS);
-const camera = pick(CAMERA);
-const style = pick(STYLE);
-const perception = Math.random() < 0.35 ? pick(PERCEPTION) : null;
-const variation = Math.random() < 0.5 ? pick(CORE_VARIATION) : null;
-
-lastVals = { location, time, weather, season, mood, camera, style, perception, variation };
-
-const parts = [
-“United States of America”, location, season, time, weather,
-`mood: ${mood}`, camera, style,
-…(perception ? [perception] : []),
-CORE_FIXED,
-…(variation ? [variation] : []),
-“cinematic everyday America, filmic photography, natural light, high detail, no people”
-];
-
-currentPrompt = parts.join(”, “);
-
-document.getElementById(“emptyState”).style.display = “none”;
-document.getElementById(“result”).style.display = “block”;
-document.getElementById(“saveBtn”).style.display = “block”;
-renderResultFields();
-}
-
-function copyPrompt() {
-currentPrompt = document.getElementById(“promptTextarea”)?.value || currentPrompt;
-if (!currentPrompt) return;
-navigator.clipboard.writeText(currentPrompt).then(() => {
-const btn = document.getElementById(“copyBtn”);
-btn.textContent = “Copied ✓”; btn.classList.add(“copied”);
-setTimeout(() => { btn.textContent = “Copy”; btn.classList.remove(“copied”); }, 2000);
-});
-}
-
-function savePrompt() {
-if (!currentPrompt) return;
-let saved = JSON.parse(localStorage.getItem(“cin_america_v1”) || “[]”);
-if (saved.includes(currentPrompt)) return;
-saved.unshift(currentPrompt);
-localStorage.setItem(“cin_america_v1”, JSON.stringify(saved.slice(0, 30)));
-renderSaved();
-}
-
-function renderSaved() {
-const saved = JSON.parse(localStorage.getItem(“cin_america_v1”) || “[]”);
-const section = document.getElementById(“savedSection”);
-const list = document.getElementById(“savedList”);
-if (saved.length === 0) { section.style.display = “none”; return; }
-section.style.display = “block”;
-list.innerHTML = saved.map((p, i) => `<div class="saved-item" data-index="${i}">${p}</div>`).join(””);
-document.querySelectorAll(”.saved-item”).forEach(el => {
-el.onclick = () => navigator.clipboard.writeText(saved[el.dataset.index]);
-});
-}
-
+function reroll(key){const s={location:LOCATIONS,time:TIMES,weather:WEATHER,season:SEASONS,mood:MOODS,camera:CAMERA,style:STYLE};if(s[key])lastVals[key]=pick(s[key]);else if(key==='perception')lastVals.perception=Math.random()<0.35?pick(PERCEPTION):null;rebuildPrompt();}
+function rebuildPrompt(){const v=lastVals;const parts=["United States of America",v.location,v.season,v.time,v.weather,`mood: ${v.mood}`,v.camera,v.style,...(v.perception?[v.perception]:[]),CORE_FIXED,...(v.variation?[v.variation]:[]),"cinematic everyday America, filmic photography, natural light, high detail, no people"];currentPrompt=parts.join(", ");document.getElementById("promptTextarea").value=currentPrompt;renderResultFields();}
+function renderResultFields(){const v=lastVals;const fields=[{label:"ロケーション",value:v.location,color:FIELD_COLORS[0],key:"location"},{label:"季節",value:v.season,color:FIELD_COLORS[1],key:"season"},{label:"時間帯",value:v.time,color:FIELD_COLORS[2],key:"time"},{label:"天気",value:v.weather,color:FIELD_COLORS[3],key:"weather"},{label:"ムード",value:v.mood,color:FIELD_COLORS[4],key:"mood"},{label:"カメラ",value:v.camera,color:FIELD_COLORS[5],key:"camera"},{label:"スタイル",value:v.style,color:FIELD_COLORS[6],key:"style"}];if(v.perception)fields.push({label:"知覚歪曲",value:v.perception,color:"#c084fc",key:"perception",rare:true});const html=fields.map(f=>`<div class="field"><div class="field-label">${f.label}</div><div class="field-value" style="color:${f.color}">${f.value}${f.rare?`<span class="rare-badge" style="color:${f.color}">rare</span>`:""}</div><button class="reroll-btn" onclick="reroll('${f.key}')">🔄</button></div>`).join("");document.getElementById("result").innerHTML=`<div class="fields animate-in">${html}</div><hr class="divider"><div class="prompt-label">画像AIにコピー</div><textarea class="prompt-textarea" id="promptTextarea" oninput="currentPrompt=this.value"></textarea><button class="copy-btn" id="copyBtn" onclick="copyPrompt()">Copy</button>`;document.getElementById("promptTextarea").value=currentPrompt;}
+function generate(){generated++;document.getElementById("counter").textContent=`${generated} generated`;const location=pick(LOCATIONS);const time=pick(TIMES);const weather=pick(WEATHER);const season=pick(SEASONS);const mood=pick(MOODS);const camera=pick(CAMERA);const style=pick(STYLE);const perception=Math.random()<0.35?pick(PERCEPTION):null;const variation=Math.random()<0.5?pick(CORE_VARIATION):null;lastVals={location,time,weather,season,mood,camera,style,perception,variation};const parts=["United States of America",location,season,time,weather,`mood: ${mood}`,camera,style,...(perception?[perception]:[]),CORE_FIXED,...(variation?[variation]:[]),"cinematic everyday America, filmic photography, natural light, high detail, no people"];currentPrompt=parts.join(", ");document.getElementById("emptyState").style.display="none";document.getElementById("result").style.display="block";document.getElementById("saveBtn").style.display="block";renderResultFields();}
+function copyPrompt(){currentPrompt=document.getElementById("promptTextarea")?.value||currentPrompt;if(!currentPrompt)return;navigator.clipboard.writeText(currentPrompt).then(()=>{const b=document.getElementById("copyBtn");b.textContent="Copied ✓";b.classList.add("copied");setTimeout(()=>{b.textContent="Copy";b.classList.remove("copied");},2000);});}
+function savePrompt(){if(!currentPrompt)return;let s=JSON.parse(localStorage.getItem("cin_america_v1")||"[]");if(s.includes(currentPrompt))return;s.unshift(currentPrompt);localStorage.setItem("cin_america_v1",JSON.stringify(s.slice(0,30)));renderSaved();}
+function renderSaved(){const s=JSON.parse(localStorage.getItem("cin_america_v1")||"[]");const sec=document.getElementById("savedSection");const list=document.getElementById("savedList");if(s.length===0){sec.style.display="none";return;}sec.style.display="block";list.innerHTML=s.map((p,i)=>`<div class="saved-item" data-index="${i}">${p}</div>`).join("");document.querySelectorAll(".saved-item").forEach(el=>{el.onclick=()=>navigator.clipboard.writeText(s[el.dataset.index]);});}
 renderSaved();
 </script>
-
 </body>
 </html>
